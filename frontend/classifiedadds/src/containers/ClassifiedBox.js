@@ -20,7 +20,8 @@ class ClassifiedBox extends Component {
                 title: "19th Century Abacus",
                 askingPrice: 1000
             }
-            ]
+            ],
+            advertsDB: []
         }
     }
 
@@ -34,14 +35,17 @@ class ClassifiedBox extends Component {
         
         fetch(url2)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => {
+            this.setState({advertsDB: data})
+            console.log(this.state.advertsDB._embedded.adverts);
+        })
     }
 
     render(){
         // console.log(this.state.admins)
         return(
         <section>
-            <h1>Hi front the ClassifiedBox</h1>
+            <h1>Hi from the ClassifiedBox</h1>
             <AdvertList adverts = {this.state.adverts}/>
         </section>
     )
