@@ -1,25 +1,45 @@
 package com.example.classifiedjavaproject.models;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="adverts")
+
 public class Advert {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="category")
     private String category;
 
+    @Column(name="description")
     private String description;
 
+    @Column(name="title")
     private String title;
 
+    @Column(name="asking_price")
     private double askingPrice;
 
-    public Advert(String category, String description, String title, double askingPrice ){
+    @ManyToOne
+    @JoinColumn(name="admin_id", nullable = false)
+    private Admin admin;
+
+    public Advert(String category, String description, String title, double askingPrice, Admin admin ){
 
         this.category = category;
         this.description = description;
         this.title = title;
         this.askingPrice = askingPrice;
+        this.admin = admin;
     }
 
+    public Advert(){
+
+    }
 
     public Long getId() {
         return id;
@@ -60,4 +80,14 @@ public class Advert {
     public void setAskingPrice(double askingPrice) {
         this.askingPrice = askingPrice;
     }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
+
+
 }
