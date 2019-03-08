@@ -11,6 +11,4 @@ const ClassifiedBox = (props) => {
     )
 }
 
-
-
 export default ClassifiedBox;
