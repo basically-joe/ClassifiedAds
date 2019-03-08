@@ -17,5 +17,5 @@ public class AdminController {
     @Autowired
     AdminRepository adminRepository;
 
-    
+
 }
