@@ -46,7 +46,7 @@ class ClassifiedBox extends Component {
         return(
         <section>
             <h1>Hi from the ClassifiedBox</h1>
-            <AdvertList adverts = {this.state.adverts}/>
+            <AdvertList adverts = {this.state.advertsDB}/>
         </section>
     )
         }  

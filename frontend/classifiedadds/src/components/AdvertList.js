@@ -1,8 +1,12 @@
 import React from 'react'
 
 const AdvertList = ({adverts}) => {
-    if (!adverts) return null;
-    const advertNodes = adverts.map(advert => {
+
+    if (!adverts._embedded) return null;
+    const adSpecificData = adverts._embedded.adverts;
+    console.log(adverts._embedded.adverts)
+
+    const advertNodes = adSpecificData.map(advert => {
         return (
             <div key = {advert.category}>
             <h1>{advert.title}</h1>
