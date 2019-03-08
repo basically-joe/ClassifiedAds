@@ -1,5 +1,4 @@
 import React from 'react'
-import Advert from "../components/Advert"
 
 const AdvertList = ({adverts}) => {
     if (!adverts) return null;

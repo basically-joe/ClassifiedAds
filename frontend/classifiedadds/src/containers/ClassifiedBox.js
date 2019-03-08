@@ -26,11 +26,16 @@ class ClassifiedBox extends Component {
 
     componentDidMount(){
         const url = "http://localhost:8080/admins"
+        const url2 = "http://localhost:8080/adverts"
+
         fetch(url)
         .then(res => res.json())
         .then(data => console.log(data))
+        
+        fetch(url2)
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
-
 
     render(){
         // console.log(this.state.admins)
