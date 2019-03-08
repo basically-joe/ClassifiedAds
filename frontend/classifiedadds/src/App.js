@@ -6,7 +6,6 @@ class App extends Component {
   render() {
     return (
       <section>
-      <h1>Hi from front-end</h1>
       <ClassifiedBox/>
       </section>
     );
