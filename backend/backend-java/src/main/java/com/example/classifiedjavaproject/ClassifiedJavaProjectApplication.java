@@ -1,13 +1,13 @@
-package com.example.javabackend;
+package com.example.classifiedjavaproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JavaBackendApplication {
+public class ClassifiedJavaProjectApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JavaBackendApplication.class, args);
+		SpringApplication.run(ClassifiedJavaProjectApplication.class, args);
 	}
 
 }
