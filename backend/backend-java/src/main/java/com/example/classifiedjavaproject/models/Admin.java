@@ -21,14 +21,14 @@ public class Admin {
         @Column(name="client_name")
         private String clientName;
 
-//        @JsonIgnore
-//        @OneToMany(mappedBy = "admin")
-//        private List<Advert> adverts;
+        @JsonIgnore
+        @OneToMany(mappedBy = "admin")
+        private List<Advert> adverts;
 
         public Admin(String userName, String clientName){
             this.userName = userName;
             this.clientName = clientName;
-//            this.adverts = new ArrayList<>();
+            this.adverts = new ArrayList<>();
         }
 
         public Admin(){
@@ -51,21 +51,23 @@ public class Admin {
             this.clientName = clientName;
         }
 
-//        public List<Advert> getAdverts() {
-//            return adverts;
-//        }
-//
-//        public void setAdverts(List<Advert> adverts) {
-//            this.adverts = adverts;
-//        }
+        public List<Advert> getAdverts() {
+            return adverts;
+        }
 
-        public Long getId() {
+        public void setAdverts(List<Advert> adverts) {
+            this.adverts = adverts;
+        }
+
+        public Long getAdminId() {
             return id;
         }
 
-        public void setId(Long id) {
+        public void setAdminId(Long id) {
             this.id = id;
         }
+
+
     }
 
 

@@ -88,4 +88,6 @@ public class Advert {
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
+
+
 }
