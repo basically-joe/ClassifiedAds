@@ -7,20 +7,6 @@ class ClassifiedBox extends Component {
         super(props);
         this.state = {
             admins: [],
-            adverts: [
-                {
-                category: "Sports",
-                description: "Super charged mega awsome 3 wheel automobile for cheap cheap, 16 years old, only died once, it's brown and very very disgusting looking",
-                title: "Selling my car",
-                askingPrice: 200
-            },
-            {
-                category: "Tech",
-                description: "A high end calculator from 19th centrury British empire, cedar and mohogany trim, once used Duke Harrington who was massacred at the battle of Dordoin. Going for real cheap",
-                title: "19th Century Abacus",
-                askingPrice: 1000
-            }
-            ],
             advertsDB: []
         }
     }
@@ -37,12 +23,11 @@ class ClassifiedBox extends Component {
         .then(res => res.json())
         .then(data => {
             this.setState({advertsDB: data})
-            console.log(this.state.advertsDB._embedded.adverts);
+            console.log(this.state.advertsDB._embedded);
         })
     }
 
     render(){
-        // console.log(this.state.admins)
         return(
         <section>
             <h1>Hi from the ClassifiedBox</h1>
