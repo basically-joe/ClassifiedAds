@@ -28,8 +28,8 @@ public class DataLoader implements ApplicationRunner {
         Admin admin1 = new Admin("gilroy_ms", "McDonalds");
         adminRepository.save(admin1);
 
-        Admin admin1 = new Admin("gilroy_ms", "Harry's Pottery");
-        adminRepository.save(admin1);
+        Admin admin4 = new Admin("gilroy_ms", "Harry's Pottery");
+        adminRepository.save(admin4);
 
         Admin admin2 = new Admin("raul_2000", "Billious Beards");
         adminRepository.save(admin2);
