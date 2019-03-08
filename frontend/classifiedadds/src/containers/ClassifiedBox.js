@@ -10,14 +10,14 @@ class ClassifiedBox extends Component {
             adverts: [
                 {
                 category: "Sports",
-                description: "Super charged mega awsome mobile for cheap cheap, 16 years old, only died once, it's brown and very very disgusting looking",
+                description: "Super charged mega awsome 3 wheel automobile for cheap cheap, 16 years old, only died once, it's brown and very very disgusting looking",
                 title: "Selling my car",
                 askingPrice: 200
             },
             {
                 category: "Tech",
                 description: "A high end calculator from 19th centrury British empire, cedar and mohogany trim, once used Duke Harrington who was massacred at the battle of Dordoin. Going for real cheap",
-                title: "Selling my car",
+                title: "19th Century Abacus",
                 askingPrice: 1000
             }
             ]
@@ -37,7 +37,7 @@ class ClassifiedBox extends Component {
         return(
         <section>
             <h1>Hi front the ClassifiedBox</h1>
-            <AdvertList/>
+            <AdvertList adverts = {this.state.adverts}/>
         </section>
     )
         }  
