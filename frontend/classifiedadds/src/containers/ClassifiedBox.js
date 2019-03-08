@@ -6,7 +6,15 @@ class ClassifiedBox extends Component {
     constructor(props){
         super(props);
         this.state = {
-            admins: []
+            admins: [],
+            adverts: [
+                {
+                category: "Sports",
+                description: "Super charged mega awsome mobile for cheap cheap, 16 years old, only died once, it's brown and very very disgusting looking",
+                title: "Selling my car",
+                askingPrice: 200
+            }
+            ]
         }
     }
 
