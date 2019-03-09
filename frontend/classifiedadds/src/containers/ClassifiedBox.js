@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import AdvertList from '../components/AdvertList'
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import Navbar from '../components/NavBar';
 
 class ClassifiedBox extends Component {
     constructor(props){
@@ -29,9 +30,15 @@ class ClassifiedBox extends Component {
 
     render(){
         return(
+
+            <Router>
+                <Fragment>
+                <Navbar/>
         <section>
             <AdvertList adverts = {this.state.advertsDB}/>
         </section>
+        </Fragment>
+        </Router>
     )
         }  
 }
