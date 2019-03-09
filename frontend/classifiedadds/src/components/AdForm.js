@@ -85,6 +85,27 @@ class AdForm extends Component {
                         name="radio2" />
                     Automobile </label>
 
+                    <label>
+                    <input type="radio" onChange={this.handleCategory1Change.bind(this)}
+                        checked={this.state.category === "Clothing"}
+                        value="Clothing"
+                        name="radio3" />
+                    Clothing </label>
+
+                    <label>
+                    <input type="radio" onChange={this.handleCategory1Change.bind(this)}
+                        checked={this.state.category === "Tech"}
+                        value="Tech"
+                        name="radio4" />
+                    Tech </label>
+
+                    <label>
+                    <input type="radio" onChange={this.handleCategory1Change.bind(this)}
+                        checked={this.state.category === "Furniture"}
+                        value="Furniture"
+                        name="radio5" />
+                    Furniture </label>
+
                 <input
                     type="submit"
                     value="Post"
