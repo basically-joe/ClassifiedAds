@@ -2,11 +2,10 @@ import React from 'react'
 
 const AdvertList = ({adverts}) => {
 
-    if (!adverts._embedded) return null;
-    const adSpecificData = adverts._embedded.adverts;
-    console.log(adverts._embedded.adverts)
+    if (!adverts) return null;
+    console.log(adverts)
 
-    const advertNodes = adSpecificData.map(advert => {
+    const advertNodes = adverts.map(advert => {
         return (
             <div key = {advert.category} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
