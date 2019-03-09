@@ -41,7 +41,7 @@ class AdForm extends Component {
 
         e.preventDefault();
         const newComment = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
-        this.props.onCommentSubmit(newComment)
+        this.props.onAdSubmit(newComment)
         this.setState({ askingPrice: "", category: "", description: "", title: "" })
     }
 

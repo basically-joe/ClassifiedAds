@@ -14,7 +14,7 @@ class ClassifiedBox extends Component {
             advertsDB: []
         }
 
-        this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
+        this.handleAddSubmit = this.handleAddSubmit.bind(this)
 
     }
 
@@ -34,10 +34,10 @@ class ClassifiedBox extends Component {
             })
     }
 
-    handleCommentSubmit(submittedComment){
-        submittedComment.id = Date.now()
-        const updatedComments = [...this.state.advertsDB, submittedComment] // spread operator is ..., copies state then makes new one.
-        this.setState({advertsDB: updatedComments})
+    handleAddSubmit(submittedAd){
+        // submittedComment.id = Date.now()
+        const updatedAds = [...this.state.advertsDB, submittedAd] // spread operator is ..., copies state then makes new one.
+        this.setState({advertsDB: updatedAds})
       }
 
     render() {
@@ -49,10 +49,10 @@ class ClassifiedBox extends Component {
                     <Switch>
                        <Route 
                        exact path="/home" 
-                       render= {() => <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleCommentSubmit}/>}
+                       render= {() => <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>}
                        />
                        <Route path="/createad" 
-                       render= {() => <AdForm onCommentSubmit = {this.handleCommentSubmit}/>}
+                       render= {() => <AdForm onAdSubmit = {this.handleAddSubmit}/>}
                        />
                        />
                        <Route component={ErrorPage}/>
