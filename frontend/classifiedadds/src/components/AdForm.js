@@ -33,6 +33,7 @@ class AdForm extends Component{
     }
     
     handleSubmit(e){
+ 
         e.preventDefault();
         const newComment = {askingPrice: this.state.askingPrice, description: this.state.description, title: this.state.title}
         this.props.onCommentSubmit(newComment)
