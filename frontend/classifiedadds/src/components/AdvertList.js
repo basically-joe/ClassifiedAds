@@ -8,7 +8,7 @@ const AdvertList = ({adverts}) => {
 
     const advertNodes = adSpecificData.map(advert => {
         return (
-            <div key = {advert.category} className = "individual-ad-box">
+            <div key = {advert.category} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
             <p>{advert.category}</p>
             <p>{advert.askingPrice}</p>
@@ -18,7 +18,7 @@ const AdvertList = ({adverts}) => {
     })
 
     return(
-        <section className="advert-list">
+        <section className="advert-list-row">
             {advertNodes}
         </section>
     )
