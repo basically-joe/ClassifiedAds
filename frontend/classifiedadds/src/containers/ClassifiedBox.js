@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import AdvertList from '../components/AdvertList'
 import Navbar from '../components/NavBar';
 import AdForm from "../components/AdForm"
-import { BrowserRouter as Router, Route} from "react-router-dom";
+import ErrorPage from "../components/ErrorPage"
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
 class ClassifiedBox extends Component {
@@ -36,11 +37,14 @@ class ClassifiedBox extends Component {
             <Router>
                 <Fragment>
                     <Navbar />
+                    <Switch>
                        <Route 
                        exact path="/home" 
                        render= {() => <AdvertList adverts = {this.state.advertsDB}/>}
                        />
                        <Route path="/createad" component={AdForm}/>
+                       <Route component={ErrorPage}/>
+                       </Switch>
                 </Fragment>
             </Router>
         )
