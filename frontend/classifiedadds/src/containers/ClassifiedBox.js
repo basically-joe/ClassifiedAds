@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import AdvertList from '../components/AdvertList'
-import { BrowserRouter as Router, Route} from "react-router-dom";
 import Navbar from '../components/NavBar';
 import AdForm from "../components/AdForm"
+import { BrowserRouter as Router, Route} from "react-router-dom";
 
 
 class ClassifiedBox extends Component {
@@ -36,15 +36,11 @@ class ClassifiedBox extends Component {
             <Router>
                 <Fragment>
                     <Navbar />
-                       {/* <Route 
-                       exact path="/" 
-                       component={AdvertList}
-                       render= {() => <AdvertList prices = {this.state.advertsDB}/>}
-                       /> */}
+                       <Route 
+                       exact path="/home" 
+                       render= {() => <AdvertList adverts = {this.state.advertsDB}/>}
+                       />
                        <Route path="/createad" component={AdForm}/>
-                    <section>
-                        <AdvertList adverts={this.state.advertsDB} />
-                    </section>
                 </Fragment>
             </Router>
         )
