@@ -27,7 +27,7 @@ class ClassifiedBox extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ advertsDB: data })
-                console.log(this.state.advertsDB._embedded);
+                console.log(this.state.advertsDB);
             })
     }
 
