@@ -2,8 +2,8 @@ package com.example.classifiedjavaproject.components;
 
 import com.example.classifiedjavaproject.models.Admin;
 import com.example.classifiedjavaproject.models.Advert;
-import com.example.classifiedjavaproject.repositories.AdminRepository;
-import com.example.classifiedjavaproject.repositories.AdvertRepository;
+import com.example.classifiedjavaproject.repositories.adminRepositories.AdminRepository;
+import com.example.classifiedjavaproject.repositories.advertRepositories.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -43,6 +43,8 @@ public class DataLoader implements ApplicationRunner {
         Advert advert3 = new Advert("Clothing", "Cream-egg inspired jumper, fresh for Easter", "Egg-Wear", 10, admin2);
         advertRepository.save(advert3);
 
+        Advert advert4 = new Advert("Clothing", "Faux-whale-skin parka. Water resistant.", "Stylish, Orca-Chic Coat", 50, admin1);
+        advertRepository.save(advert4);
 
     }
 
