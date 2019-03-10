@@ -28,6 +28,12 @@ public class AdminController {
         adminRepository.deleteById(id);
     }
 
+    @PutMapping("/{id}")
+    public Admin updateAdminById(@PathVariable Long id, @RequestBody Admin admin){
+        adminRepository.save(admin);
+        return adminRepository.getAdminById(id);
+    }
+
 
 
 
