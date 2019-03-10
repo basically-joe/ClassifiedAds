@@ -1,0 +1,15 @@
+form {
+padding: 5px;
+margin:10px;
+border: 1px;
+border-style: solid;
+border-radius: 10px;
+max-width: 250px;
+}
+
+.radio-buttons{
+margin:4px;
+border: 1px;
+border-style: solid;
+border-radius: 10px;
+}
