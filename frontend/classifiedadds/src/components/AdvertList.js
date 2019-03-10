@@ -17,9 +17,9 @@ const AdvertList = ({adverts}) => {
     })
 
     return(
-        <section className="advert-list-row">
+        <div className="advert-list-row">
             {advertNodes}
-        </section>
+        </div>
     )
 
 }

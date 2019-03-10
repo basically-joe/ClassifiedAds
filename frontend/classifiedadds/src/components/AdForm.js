@@ -49,6 +49,7 @@ class AdForm extends Component {
         return (
             
 
+            
             <form
                 className="ad-form"
                 onSubmit={this.handleSubmit}
@@ -59,20 +60,20 @@ class AdForm extends Component {
                     placeholder="Asking price eg £100"
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
-                />
+                /><br/>
                 <input
                     type="text"
                     placeholder="Description..."
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
-                />
+                /><br/>
                 <input
                     type="text"
                     placeholder="Title..."
                     value={this.state.title}
                     onChange={this.handleTitleChange}
-                />
-
+                /><br/>
+                <div className="radio-buttons">
                 <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
                         checked={this.state.category === "Beauty"}
@@ -85,7 +86,7 @@ class AdForm extends Component {
                         checked={this.state.category === "Automobile"}
                         value="Automobile"
                         name="radio2" />
-                    Automobile </label>
+                    Automobile </label><br/>
 
                     <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
@@ -99,14 +100,15 @@ class AdForm extends Component {
                         checked={this.state.category === "Tech"}
                         value="Tech"
                         name="radio4" />
-                    Tech </label>
+                    Tech </label><br/>
 
                     <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
                         checked={this.state.category === "Furniture"}
                         value="Furniture"
                         name="radio5" />
-                    Furniture </label>
+                    Furniture </label><br/>
+                    </div>
 
                 <input
                     type="submit"
