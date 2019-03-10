@@ -22,7 +22,7 @@ public class Admin {
         private String clientName;
 
         @JsonIgnore
-        @OneToMany(mappedBy = "admin")
+        @OneToMany(mappedBy = "admin", cascade = CascadeType.REMOVE, orphanRemoval = true)
         private List<Advert> adverts;
 
         public Admin(String userName, String clientName){

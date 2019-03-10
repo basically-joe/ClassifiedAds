@@ -2,6 +2,7 @@ package com.example.classifiedjavaproject.controllers;
 
 
 import com.example.classifiedjavaproject.models.Admin;
+import com.example.classifiedjavaproject.models.Advert;
 import com.example.classifiedjavaproject.repositories.adminRepositories.AdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +22,8 @@ public class AdminController {
     public Admin getAdminById(@PathVariable Long id){
         return adminRepository.getAdminById(id);
     }
+
+
 
 
 

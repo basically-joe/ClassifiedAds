@@ -20,4 +20,11 @@ public class AdvertController {
     public Advert getAdvertById(@PathVariable Long id){
         return advertRepository.getAdvertById(id);
     }
+
+    @DeleteMapping("/{id}")
+    public void deleteAdvertById(@PathVariable Long id){
+        advertRepository.deleteById(id);
+    }
+
+
 }
