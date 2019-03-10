@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 
-
 class AdForm extends Component {
 
     constructor(props) {
@@ -9,20 +8,20 @@ class AdForm extends Component {
             askingPrice: "",
             category: "",
             description: "",
-            title: ""
+            title: "",
         }
+
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)
-
 
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
 
     handleaskingPriceChange(e) {
-        this.setState({ askingPrice: e.target.value })
+        this.setState({ askingPrice: parseInt(e.target.value) })
     }
 
     handleDescriptionChange(e) {
@@ -46,14 +45,17 @@ class AdForm extends Component {
     }
 
     render() {
+        
         return (
+            
+
             <form
                 className="ad-form"
                 onSubmit={this.handleSubmit}
             >
 
                 <input
-                    type="text"
+                    type="number"
                     placeholder="Asking price eg £100"
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
@@ -111,6 +113,7 @@ class AdForm extends Component {
                     value="Post"
                 />
             </form>
+            
         )
     }
 }
