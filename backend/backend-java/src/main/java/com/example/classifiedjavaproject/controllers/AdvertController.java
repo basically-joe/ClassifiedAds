@@ -34,7 +34,7 @@ public class AdvertController {
     }
 
     @PostMapping("/")
-    public Advert updateAdvertById(@PathVariable Long id, @RequestBody Advert advert, @RequestBody Admin admin){
+    public Advert postAdvert(@RequestBody Advert advert, @RequestBody Admin admin){
         adminRepository.save(admin);
         advert.setAdmin(admin);
         advertRepository.save(advert);
@@ -42,6 +42,15 @@ public class AdvertController {
         Advert newAdvert = getAdvertById(advertId);
         return newAdvert;
 
+    }
+
+//    this post is a little broken - it adds 'null' column to the Admin id field in the DB.
+//    all of the other fields are added to the DB, so category, etc.
+
+    @PutMapping("/{id}")
+    public Advert updateAdvertById(@PathVariable Long id, @RequestBody Advert advert){
+        advertRepository.save(advert);
+        return advertRepository.getAdvertById(id);
     }
 
 
