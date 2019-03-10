@@ -25,7 +25,7 @@ public class Advert {
     private double askingPrice;
 
     @ManyToOne
-    @JoinColumn(name="admin_id", nullable = false)
+    @JoinColumn(name="admin_id", nullable = true)
     private Admin admin;
 
     public Advert(String category, String description, String title, double askingPrice, Admin admin ){

@@ -34,7 +34,7 @@ public class AdminController {
         return adminRepository.getAdminById(id);
     }
 
-    @PostMapping("/{id}")
+    @PostMapping("/")
     public Admin postAdmin(@RequestBody Admin admin){
         adminRepository.save(admin);
         Long adminId = admin.getAdminId();

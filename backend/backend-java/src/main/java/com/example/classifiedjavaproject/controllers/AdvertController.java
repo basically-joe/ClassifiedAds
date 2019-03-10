@@ -1,6 +1,8 @@
 package com.example.classifiedjavaproject.controllers;
 
+import com.example.classifiedjavaproject.models.Admin;
 import com.example.classifiedjavaproject.models.Advert;
+import com.example.classifiedjavaproject.repositories.adminRepositories.AdminRepository;
 import com.example.classifiedjavaproject.repositories.advertRepositories.AdvertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +19,9 @@ public class AdvertController {
     @Autowired
     AdvertRepository advertRepository;
 
+    @Autowired
+    AdminRepository adminRepository;
+
 
     @GetMapping("/{id}")
     public Advert getAdvertById(@PathVariable Long id){
@@ -28,19 +33,17 @@ public class AdvertController {
         advertRepository.deleteById(id);
     }
 
-//    @PutMapping("/{id}")
-//    public void updateAdvertbyId(@PathVariable Long id,
-//                                   @RequestBody String updatedCategory,
-//                                   @RequestBody String updatedDescription,
-//                                   @RequestBody String updatedTitle,
-//                                   @RequestBody double updatedAskingPrice){
-//        Advert advertToUpdate = advertRepository.getOne(id);
-//        advertToUpdate.setCategory(updatedCategory);
-//        advertToUpdate.setDescription(updatedDescription);
-//        advertToUpdate.setTitle(updatedTitle);
-//        advertToUpdate.setAskingPrice(updatedAskingPrice);
-//        advertRepository.save(advertToUpdate);
-//    }
+    @PostMapping("/")
+    public Advert updateAdvertById(@PathVariable Long id, @RequestBody Advert advert, @RequestBody Admin admin){
+        adminRepository.save(admin);
+        advert.setAdmin(admin);
+        advertRepository.save(advert);
+        Long advertId = advert.getId();
+        Advert newAdvert = getAdvertById(advertId);
+        return newAdvert;
+
+    }
+
 
 
 
