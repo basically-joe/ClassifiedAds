@@ -7,12 +7,9 @@ import org.springframework.data.rest.core.config.Projection;
 
 @Projection(name="embedAdvert", types= Advert.class)
 public interface EmbedAdvert {
-
-   String getCategory();
-   String getDescription();
-   String getTitle();
-   double getAskingPrice();
-   Admin getAdmin();
-
+    String getDescription();
+    String getTitle();
+    String getCategory();
+    double getAskingPrice();
+    Admin getAdmin();
 }
-
