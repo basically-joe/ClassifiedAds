@@ -57,7 +57,7 @@ class AdForm extends Component {
 
                 <input
                     type="number"
-                    placeholder="Asking price eg £100"
+                    placeholder="Asking price..."
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
                 /><br/>
