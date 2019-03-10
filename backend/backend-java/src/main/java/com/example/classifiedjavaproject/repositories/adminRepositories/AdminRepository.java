@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @RepositoryRestResource(excerptProjection = EmbedAdmin.class)
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
+    Admin getAdminById(Long id);
 
 
 }
