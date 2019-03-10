@@ -49,16 +49,21 @@ class ClassifiedBox extends Component {
                     <Switch>
                        <Route 
                        exact path="/home" 
-                       render= {() => <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>}
-                       />
-                       <Route path="/createad" 
-                       render= {() => 
+                       render= {() =>
                         <div>
+                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>}
+                        </div>
+                       }
+                        />
+                        
+                        <Route 
+                        path="/createad"
+                        render= {() => 
+                <div>
                        <AdForm onAdSubmit = {this.handleAddSubmit}/> 
                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>
-                       </div>
+                </div>
                     } 
-                       />
                        />
                        <Route component={ErrorPage}/>
                        </Switch>
