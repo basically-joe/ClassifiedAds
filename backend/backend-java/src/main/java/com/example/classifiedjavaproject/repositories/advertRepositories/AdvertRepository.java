@@ -9,6 +9,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 @RepositoryRestResource(excerptProjection = EmbedAdvert.class)
 public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
+    Advert getAdvertById(Long id);
 
 }
 
