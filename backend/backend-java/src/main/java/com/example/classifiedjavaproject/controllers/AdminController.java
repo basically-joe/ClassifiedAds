@@ -23,6 +23,10 @@ public class AdminController {
         return adminRepository.getAdminById(id);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteAdminById(@PathVariable Long id){
+        adminRepository.deleteById(id);
+    }
 
 
 
