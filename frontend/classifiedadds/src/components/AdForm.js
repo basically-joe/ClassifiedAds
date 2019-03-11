@@ -58,7 +58,7 @@ class AdForm extends Component {
             >
 
               <AdminSelector admins = {this.props.admins} onAdminSelected = {this.props.onAdminSelected}/>
-
+                    {console.log(this.props.admins)}
 
                 <input
                     type="number"

@@ -3,7 +3,6 @@ import AdvertList from '../components/AdvertList'
 import Navbar from '../components/NavBar';
 import AdForm from "../components/AdForm"
 import ErrorPage from "../components/ErrorPage"
-import AdminSelector from "../components/AdminSelector"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
@@ -41,7 +40,7 @@ class ClassifiedBox extends Component {
 
     handleAdminSelected(index) {
         const selectedAdmin = this.state.adminsDB[index];
-        this.setState({currentAdmin: selectedAdmin})
+        this.setState({currentAdmin: selectedAdmin}) // this needs to be passed through to advert list which would also need an if condotional to single or multiple items.h
       }
 
 
