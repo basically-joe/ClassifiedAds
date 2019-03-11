@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.PostUpdate;
+import java.util.List;
 
 
 @RestController
@@ -53,9 +54,10 @@ public class AdvertController {
         return advertRepository.getAdvertById(id);
     }
 
-
-
-
+    @GetMapping("/category/{category}")
+    public List<Advert> getAdvertByCategory(@PathVariable String category){
+        return advertRepository.getAdvertByCategory(category);
+    }
 
 
 
