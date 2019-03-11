@@ -1,0 +1,24 @@
+.advert-list-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .individual-ad-box-column{
+  
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 50%;  
+
+    border: 1px;
+    border-style: solid;
+    max-width: 400px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+  }
