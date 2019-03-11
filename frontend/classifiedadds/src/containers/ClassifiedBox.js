@@ -11,7 +11,7 @@ class ClassifiedBox extends Component {
         this.state = {
             admins: [],
             adverts: [],
-            filteredAdverts: []
+            selectedAdvert: null
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this)
@@ -36,7 +36,6 @@ class ClassifiedBox extends Component {
     }
 
     handleAdSubmit(newAdvert){
-
         console.log(newAdvert)
         
         const dataToPost = JSON.stringify(newAdvert)
@@ -53,21 +52,20 @@ class ClassifiedBox extends Component {
     }
   
 
-    handleAdvertSelect(index){
-        const selectedAdvert = this.state.adverts[index];
-        this.setState({filteredAdverts: [{selectedAdvert}]})
-        return (
-            <div>{this.state.filteredAdverts}</div>
-        )
+    handleAdvertSelect(categoryToFilterBy){
+        const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
+        console.log(selectedAdverts)
+        this.setState({adverts: selectedAdverts})
     }
 
     render() {
-        console.log(this.state.filteredAdverts)
+
         return (
              <div>
+                <AdForm onAdSubmit = {this.handleAdSubmit}/>
                 <CategorySelector adverts={this.state.adverts} onCategorySelected = {this.handleAdvertSelect}/>
                 <Advert adverts={this.state.adverts}/>
-                <AdForm onAdSubmit = {this.handleAdSubmit}/>
+        
                 
             </div>
         )
