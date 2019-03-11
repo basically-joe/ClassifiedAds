@@ -1,10 +1,8 @@
-import React, { Component, Fragment } from 'react';
-import AdvertList from '../components/AdvertList'
-import Navbar from '../components/NavBar';
+import React, { Component} from 'react';
+import Advert from '../components/Advert'
 import AdForm from "../components/AdForm"
-import ErrorPage from "../components/ErrorPage"
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import CategorySelector from "../components/CategorySelector";
+import CategorySelector from "../components/CategorySelector"
+
 
 
 class ClassifiedBox extends Component {
@@ -12,11 +10,11 @@ class ClassifiedBox extends Component {
         super(props);
         this.state = {
             admins: [],
-            advertsDB: [],
-            currentAdvert: null
+            adverts: [],
+            filteredAdverts: []
         }
 
-        this.handleAddSubmit = this.handleAddSubmit.bind(this)
+        this.handleAdSubmit = this.handleAdSubmit.bind(this)
         this.handleAdvertSelect = this.handleAdvertSelect.bind(this)
 
     }
@@ -27,59 +25,36 @@ class ClassifiedBox extends Component {
 
         fetch(url)
             .then(res => res.json())
-            .then(data => console.log(data))
+            // .then(data => console.log(data))
 
         fetch(url2)
             .then(res => res.json())
             .then(data => {
-                this.setState({ advertsDB: data._embedded.adverts })
-                console.log(data);
+                this.setState({ adverts: data._embedded.adverts })
+                // console.log(data);
             })
     }
 
-    handleAddSubmit(submittedAd){
-        // submittedComment.id = Date.now()
-        const updatedAds = [...this.state.advertsDB, submittedAd] // spread operator is ..., copies state then makes new one.
-        this.setState({advertsDB: updatedAds})
-      }
+    handleAdSubmit(newAdvert){
+        const updatedAds = [...this.state.adverts, newAdvert]
+        this.setState({adverts: updatedAds})
+    }
+  
 
     handleAdvertSelect(index){
-        const selectedAdvert = this.state.advertsDB[index];
-        this.setState({currentAdvert: selectedAdvert})
+        const selectedAdvert = this.state.adverts[index];
+        this.setState({filteredAdverts: [{selectedAdvert}]})
     }
 
-
-
     render() {
+        console.log(this.state.filteredAdverts)
         return (
-
-            <Router>
-                <Fragment>
-                    <Navbar />
-                    <Switch>
-                       <Route 
-                       exact path="/home" 
-                       render= {() =>
-                        <div> 
-                        <CategorySelector adverts={this.state.advertsDB} onAdvertSelected={this.handleAdvertSelect}/>
-                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>}
-                        </div>
-                       }
-                        />
-                        
-                        <Route 
-                        path="/createad"
-                        render= {() => 
-                <div>
-                    <CategorySelector adverts={this.state.advertsDB} onAdvertSelected={this.handleAdvertSelect}/>       
-                       <AdForm onAdSubmit = {this.handleAddSubmit}/> 
-                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>
-                </div>} />
-
-                       <Route component={ErrorPage}/>
-                       </Switch>
-                </Fragment>
-            </Router>
+             <div>
+                <CategorySelector adverts={this.state.adverts} onCategorySelected = {this.handleAdvertSelect}/>
+                <Advert adverts={this.state.adverts}/>
+                <AdForm onAdSubmit = {this.handleAdSubmit}/>
+                
+            </div>
         )
     }
 }

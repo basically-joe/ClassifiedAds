@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-const CategorySelector = ({adverts}) => {
+const CategorySelector = ({adverts, onCategorySelected}) => {
     const options = adverts.map((advert, index)=> {
         return <option value={index} key={index}>{advert.category}</option>
     })
 
     function handleChange(event){
-        adverts.onCategorySelected(event.target.value)
+        onCategorySelected(event.target.value)
     }
 
     return(
