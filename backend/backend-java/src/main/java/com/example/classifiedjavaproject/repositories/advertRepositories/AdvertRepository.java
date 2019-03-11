@@ -13,7 +13,8 @@ import java.util.List;
 public interface AdvertRepository extends JpaRepository<Advert, Long> {
 
     public Advert getAdvertById(Long id);
-    public List<Advert> getAdvertsByAdmin(String userName);
+
+    public List<Advert> getAdvertByCategory(String category);
 }
 
 

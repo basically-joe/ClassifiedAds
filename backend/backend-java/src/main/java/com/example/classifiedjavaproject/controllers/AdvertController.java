@@ -54,9 +54,10 @@ public class AdvertController {
         return advertRepository.getAdvertById(id);
     }
 
-
-
-
+    @GetMapping("/category/{category}")
+    public List<Advert> getAdvertByCategory(@PathVariable String category){
+        return advertRepository.getAdvertByCategory(category);
+    }
 
 
 

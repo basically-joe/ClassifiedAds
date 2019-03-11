@@ -12,6 +12,6 @@ import java.util.List;
 @RepositoryRestResource(excerptProjection = EmbedAdvert.class)
 public interface AdvertRepositoryCustom extends JpaRepository<Advert, Long> {
 
-    public List<Advert> getAdvertsByAdmin(Long id);
+
 
 }

@@ -32,17 +32,6 @@ public class ClassifiedJavaProjectApplicationTests {
 	public void contextLoads() {
 	}
 
-	@Test
-	public void canGetAdvertsFromAdmin(){
-		Admin admin = new Admin("gilroy_ms", "Harry's Pottery");
-		adminRepository.save(admin);
-		Advert advert = new Advert("hi", "hello", "soda", 90, admin);
-		advertRepository.save(advert);
-
-
-		List<Advert> adverts = advertRepository.getAdvertsByAdmin("gilroy_ms");
-		assertEquals(1, adverts.size());
-	}
 
 
 }

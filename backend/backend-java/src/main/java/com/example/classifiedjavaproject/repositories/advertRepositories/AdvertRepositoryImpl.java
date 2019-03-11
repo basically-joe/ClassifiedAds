@@ -13,19 +13,5 @@ import java.util.List;
 @Transactional
 public class AdvertRepositoryImpl {
 
-    @Autowired
-    EntityManager entityManager;
 
-    List<Advert> findAdvertsFromAdmin(String userName) {
-        List<Advert> result = null;
-
-        Session session = entityManager.unwrap(Session.class);
-        Criteria cr = session.createCriteria(Advert.class);
-        cr.createAlias("admins", "adminAlias");           // NEW
-        cr.add(Restrictions.eq("adminAlias.userName", userName)); // NEW
-        result = cr.list();  // NEW
-
-
-        return result;
-    }
 }
