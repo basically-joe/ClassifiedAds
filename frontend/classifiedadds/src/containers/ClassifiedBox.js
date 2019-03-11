@@ -3,6 +3,7 @@ import AdvertList from '../components/AdvertList'
 import Navbar from '../components/NavBar';
 import AdForm from "../components/AdForm"
 import ErrorPage from "../components/ErrorPage"
+import AdminSelector from "../components/AdminSelector"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 
@@ -10,8 +11,9 @@ class ClassifiedBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            admins: [],
-            advertsDB: []
+            adminsDB: [],
+            advertsDB: [],
+            currentAdmin: null
         }
 
         this.handleAddSubmit = this.handleAddSubmit.bind(this)
@@ -24,7 +26,10 @@ class ClassifiedBox extends Component {
 
         fetch(url)
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                this.setState({ adminsDB: data._embedded.admins })
+                console.log(data)
+            })
 
         fetch(url2)
             .then(res => res.json())
@@ -33,6 +38,12 @@ class ClassifiedBox extends Component {
                 console.log(data);
             })
     }
+
+    handleAdminSelected(index) {
+        const selectedAdmin = this.state.admins[index];
+        this.setState({currentAdmin: selectedAdmin})
+      }
+
 
     handleAddSubmit(submittedAd){
         // submittedComment.id = Date.now()
@@ -47,6 +58,9 @@ class ClassifiedBox extends Component {
                 <Fragment>
                     <Navbar />
                     <Switch>
+
+
+
                        <Route 
                        exact path="/home" 
                        render= {() =>
@@ -60,6 +74,7 @@ class ClassifiedBox extends Component {
                         path="/createad"
                         render= {() => 
                 <div>
+                       <AdminSelector admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/>
                        <AdForm onAdSubmit = {this.handleAddSubmit}/> 
                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>
                 </div>
