@@ -15,7 +15,7 @@ class ClassifiedBox extends Component {
             currentAdmin: null
         }
 
-        this.handleAddSubmit = this.handleAddSubmit.bind(this);
+        this.handleAdSubmit = this.handleAdSubmit.bind(this);
         this.handleAdDelete = this.handleAdDelete.bind(this);
         this.handleAdminSelected = this.handleAdminSelected.bind(this);
     }
@@ -51,7 +51,7 @@ class ClassifiedBox extends Component {
     //     this.setState({advertsDB: updatedAds})
     //   }
 
-      handleAddSubmit(newAdvert){
+      handleAdSubmit(newAdvert){
 
         console.log(newAdvert)
         
@@ -72,16 +72,14 @@ class ClassifiedBox extends Component {
 
     handleAdDelete(itemToDelete){
 
-        fetch("http://localhost:8080/adverts/3", {
+        fetch(itemToDelete, {
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({id: '5bdcdfa40f0a326f858feae0'}),
+            // body: JSON.stringify({id: '5bdcdfa40f0a326f858feae0'}),
 
         });
-        const updatedAds = [...this.state.advertsDB, itemToDelete]
-        this.setState({advertsDB: updatedAds})
     }
 
     render() {
@@ -98,7 +96,7 @@ class ClassifiedBox extends Component {
                        exact path="/home" 
                        render= {() =>
                         <div>
-                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>}
+                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAdSubmit}/>}
                         </div>
                        }
                         />
@@ -107,8 +105,8 @@ class ClassifiedBox extends Component {
                         path="/createad"
                         render= {() => 
                 <div>
-                       <AdForm onAdSubmit = {this.handleAddSubmit} admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/> 
-                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit} onAdDelete = {this.handleAdDelete}/>
+                       <AdForm onAdSubmit = {this.handleAdSubmit} admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/> 
+                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAdSubmit} onAdDelete = {this.handleAdDelete}/>
                 </div>
                     } 
                        />
