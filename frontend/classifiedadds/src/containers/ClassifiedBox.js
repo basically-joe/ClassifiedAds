@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import AdvertList from '../components/AdvertList'
+import AdvertList from '../components/AdvertList';
+import CategorySelector from '../components/CategorySelector';
 
 
 class ClassifiedBox extends Component {
@@ -31,7 +32,7 @@ class ClassifiedBox extends Component {
         fetch(url)
         .then(res => res.json())
         .then(data => console.log(data))
-        
+
         fetch(url2)
         .then(res => res.json())
         .then(data => console.log(data))
@@ -45,7 +46,7 @@ class ClassifiedBox extends Component {
             <AdvertList adverts = {this.state.adverts}/>
         </section>
     )
-        }  
+        }
 }
 
 export default ClassifiedBox;
