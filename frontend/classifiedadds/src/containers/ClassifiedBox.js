@@ -16,8 +16,8 @@ class ClassifiedBox extends Component {
             currentAdmin: null
         }
 
-        this.handleAddSubmit = this.handleAddSubmit.bind(this)
-
+        this.handleAddSubmit = this.handleAddSubmit.bind(this);
+        this.handleAdminSelected = this.handleAdminSelected.bind(this);
     }
 
     componentDidMount() {
@@ -40,7 +40,7 @@ class ClassifiedBox extends Component {
     }
 
     handleAdminSelected(index) {
-        const selectedAdmin = this.state.admins[index];
+        const selectedAdmin = this.state.adminsDB[index];
         this.setState({currentAdmin: selectedAdmin})
       }
 
@@ -74,8 +74,7 @@ class ClassifiedBox extends Component {
                         path="/createad"
                         render= {() => 
                 <div>
-                       <AdminSelector admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/>
-                       <AdForm onAdSubmit = {this.handleAddSubmit}/> 
+                       <AdForm onAdSubmit = {this.handleAddSubmit} admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/> 
                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>
                 </div>
                     } 

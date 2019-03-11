@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import AdminSelector from "./AdminSelector"
+
 
 class AdForm extends Component {
 
@@ -54,6 +56,9 @@ class AdForm extends Component {
                 className="ad-form"
                 onSubmit={this.handleSubmit}
             >
+
+              <AdminSelector admins = {this.props.admins} onAdminSelected = {this.props.onAdminSelected}/>
+
 
                 <input
                     type="number"

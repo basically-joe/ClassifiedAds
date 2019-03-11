@@ -1,14 +1,15 @@
 import React from 'react'
 
-const AdminSelector = ({admins}) => {
+const AdminSelector = ({admins, onAdminSelected}) => {
 
 const options = admins.map((admin, index) => {
     return<option value={index} key = {index}>{admin.userName}</option>
 })
 
-function handleChange(e){
-    admins.onAdminSelected(e.target.value)
+function handleChange(event){
+    onAdminSelected(event.target.value)
 }
+
 
 return(
     <select id="admin-selector" onChange={handleChange} defaultValue="default">
