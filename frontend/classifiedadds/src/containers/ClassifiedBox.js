@@ -16,6 +16,7 @@ class ClassifiedBox extends Component {
         }
 
         this.handleAddSubmit = this.handleAddSubmit.bind(this);
+        this.handleAdDelete = this.handleAdDelete.bind(this);
         this.handleAdminSelected = this.handleAdminSelected.bind(this);
     }
 
@@ -68,6 +69,21 @@ class ClassifiedBox extends Component {
     }
 
 
+
+    handleAdDelete(itemToDelete){
+
+        fetch("http://localhost:8080/adverts/3", {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({id: '5bdcdfa40f0a326f858feae0'}),
+
+        });
+        const updatedAds = [...this.state.advertsDB, itemToDelete]
+        this.setState({advertsDB: updatedAds})
+    }
+
     render() {
         return (
 
@@ -92,7 +108,7 @@ class ClassifiedBox extends Component {
                         render= {() => 
                 <div>
                        <AdForm onAdSubmit = {this.handleAddSubmit} admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/> 
-                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>
+                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit} onAdDelete = {this.handleAdDelete}/>
                 </div>
                     } 
                        />
