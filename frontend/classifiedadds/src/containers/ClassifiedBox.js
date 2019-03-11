@@ -40,10 +40,12 @@ class ClassifiedBox extends Component {
     render(){
         // console.log(this.state.admins)
         return(
-        <section>
-            <h1>Hi front the ClassifiedBox</h1>
-            <AdvertList adverts = {this.state.adverts}/>
-        </section>
+        <div className= "clssified-box">
+            <section >
+                <h1>Hi from the ClassifiedBox</h1>
+                <AdvertList adverts = {this.state.adverts}/>
+            </section>
+        </div>
     )
         }  
 }

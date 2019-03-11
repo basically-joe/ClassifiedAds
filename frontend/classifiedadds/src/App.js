@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import ClassifiedBox from "../src/containers/ClassifiedBox"
-import './App.css';
+import LikesCounter from './components/LikesCounter';
 
 class App extends Component {
   render() {
     return (
-      <section>
+      <section className= "main-container">
       <h1>Hi from front-end</h1>
       <ClassifiedBox/>
+      <LikesCounter/>
       </section>
     );
   }

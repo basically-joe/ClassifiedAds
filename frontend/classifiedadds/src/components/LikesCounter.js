@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const LikesCounter = () => {
-return (
-    <div>
-    <h1>Hi I'm the likes counter</h1>
-    </div>
-)
+    const [count, updateCount] = useState(0) // pass in an initial value
+    return (
+      <div>
+        <h1>Likes Counter: {count}</h1>
+        <button onClick={() => updateCount(count + 1)}>Like </button>
+        <button onClick={() => updateCount(count - 1)}>Dislike </button>
+
+      </div>
+    )
 }
 
 
