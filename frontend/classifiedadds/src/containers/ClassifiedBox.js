@@ -4,6 +4,7 @@ import Navbar from '../components/NavBar';
 import AdForm from "../components/AdForm"
 import ErrorPage from "../components/ErrorPage"
 import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import CategorySelector from "../components/CategorySelector";
 
 
 class ClassifiedBox extends Component {
@@ -11,10 +12,12 @@ class ClassifiedBox extends Component {
         super(props);
         this.state = {
             admins: [],
-            advertsDB: []
+            advertsDB: [],
+            currentAdvert: null
         }
 
         this.handleAddSubmit = this.handleAddSubmit.bind(this)
+        this.handleAdvertSelect = this.handleAdvertSelect.bind(this)
 
     }
 
@@ -40,6 +43,13 @@ class ClassifiedBox extends Component {
         this.setState({advertsDB: updatedAds})
       }
 
+    handleAdvertSelect(index){
+        const selectedAdvert = this.state.advertsDB[index];
+        this.setState({currentAdvert: selectedAdvert})
+    }
+
+
+
     render() {
         return (
 
@@ -50,7 +60,8 @@ class ClassifiedBox extends Component {
                        <Route 
                        exact path="/home" 
                        render= {() =>
-                        <div>
+                        <div> 
+                        <CategorySelector adverts={this.state.advertsDB} onAdvertSelected={this.handleAdvertSelect}/>
                         <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>}
                         </div>
                        }
@@ -60,11 +71,11 @@ class ClassifiedBox extends Component {
                         path="/createad"
                         render= {() => 
                 <div>
+                    <CategorySelector adverts={this.state.advertsDB} onAdvertSelected={this.handleAdvertSelect}/>       
                        <AdForm onAdSubmit = {this.handleAddSubmit}/> 
                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAddSubmit}/>
-                </div>
-                    } 
-                       />
+                </div>} />
+
                        <Route component={ErrorPage}/>
                        </Switch>
                 </Fragment>

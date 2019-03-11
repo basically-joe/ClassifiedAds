@@ -34,7 +34,7 @@ public class DataLoader implements ApplicationRunner {
         Admin admin3 = new Admin("tony_piano_fingers", "Spaghetti Inc");
         adminRepository.save(admin3);
 
-        Advert advert1 = new Advert("Beauty", "True blue eyeshadow, best for eyelids", "Eleganza Extravaganza", 2, admin3);
+        Advert advert1 = new Advert("Makeup", "True blue eyeshadow, best for eyelids", "Eleganza Extravaganza", 2, admin3);
         advertRepository.save(advert1);
 
         Advert advert2 = new Advert("Automobile", "An old jalopy, still running. Rusty but runs like a dream.","Motorists Who Drive", 500, admin1);

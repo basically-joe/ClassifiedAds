@@ -6,6 +6,7 @@ import "./Form.css";
 
 class App extends Component {
   render() {
+    
     return (
       <section className="add-box">
       <ClassifiedBox/>
