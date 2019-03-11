@@ -44,11 +44,29 @@ class ClassifiedBox extends Component {
       }
 
 
-    handleAddSubmit(submittedAd){
-        // submittedComment.id = Date.now()
-        const updatedAds = [...this.state.advertsDB, submittedAd] // spread operator is ..., copies state then makes new one.
+    // handleAddSubmit(submittedAd){
+    //     // submittedComment.id = Date.now()
+    //     const updatedAds = [...this.state.advertsDB, submittedAd] // spread operator is ..., copies state then makes new one.
+    //     this.setState({advertsDB: updatedAds})
+    //   }
+
+      handleAddSubmit(newAdvert){
+
+        console.log(newAdvert)
+        
+        const dataToPost = JSON.stringify(newAdvert)
+
+        fetch("http://localhost:8080/adverts", {
+            method: 'POST',
+            body: dataToPost,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const updatedAds = [...this.state.advertsDB, newAdvert]
         this.setState({advertsDB: updatedAds})
-      }
+    }
+
 
     render() {
         return (
