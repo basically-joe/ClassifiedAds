@@ -36,6 +36,18 @@ class ClassifiedBox extends Component {
     }
 
     handleAdSubmit(newAdvert){
+
+        console.log(newAdvert)
+        
+        const dataToPost = JSON.stringify(newAdvert)
+
+        fetch("http://localhost:8080/adverts", {
+            method: 'POST',
+            body: dataToPost,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
         const updatedAds = [...this.state.adverts, newAdvert]
         this.setState({adverts: updatedAds})
     }
@@ -44,6 +56,9 @@ class ClassifiedBox extends Component {
     handleAdvertSelect(index){
         const selectedAdvert = this.state.adverts[index];
         this.setState({filteredAdverts: [{selectedAdvert}]})
+        return (
+            <div>{this.state.filteredAdverts}</div>
+        )
     }
 
     render() {

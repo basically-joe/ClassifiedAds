@@ -38,12 +38,6 @@ class AdForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const data = new AdForm(e.target)
-
-        fetch("http://localhost:8080/adverts", {
-            method: 'POST',
-            body: data
-        });
 
         const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
         this.props.onAdSubmit(newAd)
