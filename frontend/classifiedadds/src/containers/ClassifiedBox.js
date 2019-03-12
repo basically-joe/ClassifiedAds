@@ -69,7 +69,10 @@ class ClassifiedBox extends Component {
     handleAdDelete(itemId){
 
         const indexToDelete = this.updateAdvertsArray(itemId);
+        console.log(indexToDelete)
         let newAdverts = [...this.state.advertsDB]
+
+        console.log(newAdverts)
         newAdverts.splice(indexToDelete, 1)
 
         this.setState({advertsDB: newAdverts})
@@ -104,7 +107,7 @@ class ClassifiedBox extends Component {
     }
   
     handleAdvertSelect(categoryToFilterBy){
-        const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
+        const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         console.log(selectedAdverts)
         this.setState({advertsDB: selectedAdverts})
     }
