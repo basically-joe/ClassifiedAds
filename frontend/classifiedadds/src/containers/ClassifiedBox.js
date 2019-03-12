@@ -65,20 +65,11 @@ class ClassifiedBox extends Component {
     updateAdvertsArray(idToCheck){
         console.log(this.state.advertsDB)
 
-
         let objectToUse = this.state.advertsDB.find((advert) => {
             return advert.id === idToCheck
         })
 
         return this.state.advertsDB.indexOf(objectToUse)
-        // for(const advert of this.state.advertsDB){
-            
-        //   if(advert.id === idToCheck){
-        //       console.log(advert.index);
-              
-        //     return advert.index}
-        //     console.log(advert.index)
-        //     }
     }
 
     handleAdDelete(itemId){
@@ -86,7 +77,6 @@ class ClassifiedBox extends Component {
         const indexToDelete = this.updateAdvertsArray(itemId);
         let adverts = this.state.advertsDB
         adverts.splice(indexToDelete, 1)
-        // const advertsWithoutDeletedItem = [...this.state.advertsDB.splice(indexToDelete)];
         console.log(adverts);
         
         this.setState({advertsDB: adverts})
@@ -96,12 +86,7 @@ class ClassifiedBox extends Component {
             headers: {
                 "Content-Type": "application/json",
             }
-
-        //     .then(()=>{
-        //         const indexToDelete = this.updateAdvertsArray(itemId);
-        //         const advertsWithoutDeletedItem = [...this.state.advertsDB.splice(indexToDelete)];
-        //         this.setState({advertsDB: advertsWithoutDeletedItem})
-        // })
+       
         });
 
     }
