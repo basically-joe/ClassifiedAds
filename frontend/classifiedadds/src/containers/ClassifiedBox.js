@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import Advert from '../components/Advert'
 import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
+import UpdateForm from "../components/UpdateForm"
 
 
 
@@ -66,7 +67,7 @@ class ClassifiedBox extends Component {
         this.setState({adverts: advertsWithUpdatedAd})
     }
   
-    
+
 
     handleAdvertSelect(categoryToFilterBy){
         const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
