@@ -110,7 +110,7 @@ class ClassifiedBox extends Component {
     handleAdvertSelect(categoryToFilterBy){
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         console.log(selectedAdverts)
-        this.setState({advertsDB: selectedAdverts})
+        this.setState({advertsToShow: selectedAdverts})
     }
 
 
@@ -119,8 +119,8 @@ class ClassifiedBox extends Component {
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
-                <CategorySelector adverts={this.state.advertsDB} onCategorySelected = {this.handleAdvertSelect}/>
-                <Advert adverts={this.state.advertsDB}  handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}/>
+                <CategorySelector adverts={this.state.advertsDB} advertsToShow = {this.state.advertsToShow} onCategorySelected = {this.handleAdvertSelect}/>
+                <Advert adverts={this.state.advertsDB} advertsToShow = {this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}/>
                 {this.state.renderUpdateComponent && (
                      <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate = {this.handleAdUpdate}/>
                 )}
