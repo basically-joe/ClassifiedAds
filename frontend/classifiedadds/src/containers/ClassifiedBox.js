@@ -18,6 +18,7 @@ class ClassifiedBox extends Component {
         this.handleAdSubmit = this.handleAdSubmit.bind(this);
         this.handleAdDelete = this.handleAdDelete.bind(this);
         this.handleAdminSelected = this.handleAdminSelected.bind(this);
+        this.updateAdvertsArray = this.updateAdvertsArray.bind(this);
     }
 
     componentDidMount() {
@@ -61,21 +62,47 @@ class ClassifiedBox extends Component {
         this.setState({advertsDB: updatedAds})
     }
 
+    updateAdvertsArray(idToCheck){
+        console.log(this.state.advertsDB)
+
+
+        let objectToUse = this.state.advertsDB.find((advert) => {
+            return advert.id === idToCheck
+        })
+
+        return this.state.advertsDB.indexOf(objectToUse)
+        // for(const advert of this.state.advertsDB){
+            
+        //   if(advert.id === idToCheck){
+        //       console.log(advert.index);
+              
+        //     return advert.index}
+        //     console.log(advert.index)
+        //     }
+    }
+
     handleAdDelete(itemId){
-        console.log(itemId)
         
+        const indexToDelete = this.updateAdvertsArray(itemId);
+        let adverts = this.state.advertsDB
+        adverts.splice(indexToDelete, 1)
+        // const advertsWithoutDeletedItem = [...this.state.advertsDB.splice(indexToDelete)];
+        console.log(adverts);
+        
+        this.setState({advertsDB: adverts})
 
         fetch(`http://localhost:8080/adverts/${itemId}`, {
-
             method: 'DELETE',
             headers: {
                 "Content-Type": "application/json",
             }
-            
-        });
 
-        // const latestAdvertsDB = {...this.state.advertsDB.splice[0]}
-        // this.setState({advertsDB: latestAdvertsDB})
+        //     .then(()=>{
+        //         const indexToDelete = this.updateAdvertsArray(itemId);
+        //         const advertsWithoutDeletedItem = [...this.state.advertsDB.splice(indexToDelete)];
+        //         this.setState({advertsDB: advertsWithoutDeletedItem})
+        // })
+        });
 
     }
 
