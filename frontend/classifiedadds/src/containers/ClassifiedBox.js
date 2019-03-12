@@ -6,6 +6,7 @@ import UpdateForm from "../components/UpdateForm"
 
 
 
+
 class ClassifiedBox extends Component {
     constructor(props) {
         super(props);
