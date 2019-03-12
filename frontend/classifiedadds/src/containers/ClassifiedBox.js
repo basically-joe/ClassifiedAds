@@ -3,8 +3,8 @@ import Advert from '../components/Advert'
 import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
 import UpdateForm from "../components/UpdateForm"
-
-
+import NavBar from "../components/NavBar"
+import ErrorPage from "../components/ErrorPage"
 
 
 class ClassifiedBox extends Component {
