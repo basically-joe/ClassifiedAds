@@ -7,18 +7,18 @@ class UpdateForm extends Component{
         // we will have access to the ID which we need in order to send to DB
         super(props);
         this.state = {
-            askingPrice: this.props.askingPrice,
-            category: this.props.category,
-            description: this.props.description,
-            title: this.props.title,
-            id: this.props.id
+            askingPrice: this.props.advert.askingPrice,
+            category: this.props.advert.category,
+            description: this.props.advert.description,
+            title: this.props.advert.title,
+            id: this.props.advert.id
         }
 
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)  
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
   
     }
 
@@ -42,13 +42,13 @@ handleCategory1Change(e) {
     this.setState({ category: e.target.value })
 }
 
-handleSubmit(e) {
-    e.preventDefault();
+// handleSubmit(e) {
+//     e.preventDefault();
 
-    const updatedAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
-    this.props.handleAdSubmit(updatedAd)
-    this.setState({ askingPrice: "", category: "", description: "", title: "" })
-}
+//     const updatedAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
+//     this.props.handleAdSubmit(updatedAd)
+//     this.setState({ askingPrice: "", category: "", description: "", title: "" })
+// }
 
     render() {
         console.log(this.state)
@@ -56,7 +56,7 @@ handleSubmit(e) {
             
             <form
                 className="update-ad-form"
-                onSubmit={this.handleSubmit}
+                onSubmit={this.handleAdUpdate}
             >
 
                 <input

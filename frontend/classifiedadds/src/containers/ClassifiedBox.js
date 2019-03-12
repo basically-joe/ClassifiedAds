@@ -97,6 +97,11 @@ class ClassifiedBox extends Component {
         const advertsWithUpdatedAd = [...this.state.advertsDB, updatedAdvert]
         this.setState({advertsDB: advertsWithUpdatedAd})
     }
+
+    handleAdvertToUpdate(advert){
+        console.log(advert)
+        this.setState({advertToUpdate: advert, renderUpdateComponent: true})
+    }
   
 
 
@@ -106,12 +111,9 @@ class ClassifiedBox extends Component {
         this.setState({advertsDB: selectedAdverts})
     }
 
-    handleAdvertToUpdate(advert){
-        console.log(advert)
-        this.setState({advertToUpdate: advert, renderUpdateComponent: true})
-    }
 
     render() {
+        // console.log(this.state.advertToUpdate)
         console.log(this.state.renderUpdateComponent)
         return (
              <div>
