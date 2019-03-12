@@ -121,15 +121,31 @@ class ClassifiedBox extends Component {
                 <Fragment>
                     <NavBar/>
                     <Switch>
+                        <Route
+                        path="/createad"
+                        render= {() =>
+                        <div>
+                        <AdForm onAdSubmit={this.handleAdSubmit} />
+                        <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
+                        <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                        {this.state.renderUpdateComponent && (
+                            <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
+                        )}
+                    </div>
+                        }
+                        />
+                        <Route
+                        path="/"
+                        render= {() =>
             <div>
-                <AdForm onAdSubmit={this.handleAdSubmit} />
                 <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
                 <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
                 {this.state.renderUpdateComponent && (
                     <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                 )}
-
             </div>
+                        }
+            />
             </Switch>
             </Fragment>
             </Router>
