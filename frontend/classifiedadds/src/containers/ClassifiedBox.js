@@ -16,7 +16,7 @@ class ClassifiedBox extends Component {
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this);
-        // this.handleAdDelete = this.handleAdDelete.bind(this);
+        this.handleAdDelete = this.handleAdDelete.bind(this);
         this.handleAdminSelected = this.handleAdminSelected.bind(this);
     }
 
@@ -28,14 +28,14 @@ class ClassifiedBox extends Component {
             .then(res => res.json())
             .then(data => {
                 this.setState({ adminsDB: data._embedded.admins })
-                console.log(data)
+                // console.log(data)
             })
 
         fetch(url2)
             .then(res => res.json())
             .then(data => {
                 this.setState({ advertsDB: data._embedded.adverts })
-                console.log(data);
+                // console.log(data);
             })
     }
 
@@ -61,15 +61,25 @@ class ClassifiedBox extends Component {
         this.setState({advertsDB: updatedAds})
     }
 
-    // handleAdDelete(itemToDelete){
+    handleAdDelete(itemToDelete){
+        console.log(itemToDelete)
+    
 
-    //     fetch(`${itemToDelete}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         }
+        fetch("http://localhost:8080/adverts/{id}", {
+
+            method: 'DELETE',
+            body: itemToDelete,
+            headers: {
+                "Content-Type": "application/json",
+            }
             
-    //     });
+        });
+
+        // const = advertsWithoutDeleteItem = 
+    }
+
+    // checkArray (){
+    //     if(object we pass in matches the id of the object in the Array, capure index position and return)
     // }
 
     render() {
@@ -86,8 +96,8 @@ class ClassifiedBox extends Component {
                        exact path="/home" 
                        render= {() =>
                         <div>
-                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAdSubmit} admin = {this.currentAdmin}/>}
-                        {/* onAdDelete = {this.handleAdDelete} */}
+                        <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAdSubmit} admin = {this.currentAdmin} onAdDelete = {this.handleAdDelete}/>}
+                        
                         </div>
                        }
                         />
@@ -97,9 +107,9 @@ class ClassifiedBox extends Component {
                         render= {() => 
                 <div>
                        <AdForm onAdSubmit = {this.handleAdSubmit} admins = {this.state.adminsDB} onAdminSelected = {this.handleAdminSelected}/> 
-                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAdSubmit} admin = {this.currentAdmin}/>
+                       <AdvertList adverts = {this.state.advertsDB} onCommentSubmit = {this.handleAdSubmit} admin = {this.currentAdmin} onAdDelete = {this.handleAdDelete}/>
                        {/* {console.log(currentAdmin)} */}
-                       {/* onAdDelete = {this.handleAdDelete} */}
+                       
                 </div>
                     } 
                        />
