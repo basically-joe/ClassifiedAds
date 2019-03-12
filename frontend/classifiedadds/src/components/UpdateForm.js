@@ -18,10 +18,9 @@ class UpdateForm extends Component{
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)  
-     
+        this.handleUpdate = this.handleUpdate.bind(this)
   
     }
-
 
 
 handleaskingPriceChange(e) {
@@ -41,6 +40,8 @@ handleCategory1Change(e) {
 }
 
 handleUpdate(e){
+    e.preventDefault()
+    debugger
     this.props.handleAdUpdate(this.state)
     this.setState({askingPrice: this.state.askingPrice})
 }
@@ -49,10 +50,9 @@ handleUpdate(e){
 render() {
         console.log(this.state)
         return (
+            <React.Fragment>
             
-            <form
-                className="update-ad-form"
-                onSubmit={this.handleUpdate}
+            <form 
             >
 
                 <input
@@ -112,9 +112,12 @@ render() {
 
                 <input
                     type="submit"
-                    value="Post"
+                    value="Post" 
                 />
+                <button onClick={this.handleUpdate} >awdawda</button>
+
             </form>
+            </React.Fragment>
             
         )
     }

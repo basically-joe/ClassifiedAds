@@ -69,10 +69,10 @@ class ClassifiedBox extends Component {
     handleAdDelete(itemId){
 
         const indexToDelete = this.updateAdvertsArray(itemId);
-        let adverts = this.state.advertsDB
-        adverts.splice(indexToDelete, 1)
+        let newAdverts = [...this.state.advertsDB]
+        newAdverts.splice(indexToDelete, 1)
 
-        this.setState({advertsDB: adverts})
+        this.setState({advertsDB: newAdverts})
 
         fetch(`http://localhost:8080/adverts/${itemId}`, {
             method: 'DELETE',
@@ -84,9 +84,9 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
-     
+        // debugger;
         const dataToUpdate = JSON.stringify(updatedAdvert)
-
+        console.log(dataToUpdate);
         fetch("http://localhost:8080/adverts/{id}", {
             method: 'PUT',
             body: dataToUpdate,
@@ -111,6 +111,7 @@ class ClassifiedBox extends Component {
 
 
     render() {
+        console.log(this.state.advertToUpdate)
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
