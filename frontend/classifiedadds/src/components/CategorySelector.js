@@ -4,7 +4,7 @@ const CategorySelector = ({adverts, onCategorySelected}) => {
    
     const newArrayOfValues = [];
 
-    const allCategories = adverts.map((advert)=> {
+    adverts.map((advert)=> {
         return newArrayOfValues.push(advert.category)
     })
 
