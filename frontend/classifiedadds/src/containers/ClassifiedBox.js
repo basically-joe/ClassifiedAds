@@ -40,8 +40,7 @@ class ClassifiedBox extends Component {
     }
 
     handleAdSubmit(newAdvert){
-        console.log(newAdvert)
-        
+     
         const dataToPost = JSON.stringify(newAdvert)
 
         fetch("http://localhost:8080/adverts", {
@@ -57,6 +56,7 @@ class ClassifiedBox extends Component {
 
 
     handleAdUpdate(updatedAdvert){
+        console.log(updatedAdvert)
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
         fetch("http://localhost:8080/adverts/{id}", {
@@ -84,7 +84,7 @@ class ClassifiedBox extends Component {
     }
 
     render() {
-
+        console.log(this.state.renderUpdateComponent)
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
