@@ -12,7 +12,7 @@ class ClassifiedBox extends Component {
         this.state = {
             adminsDB: [],
             advertsDB: [],
-            currentAdmin: null
+            currentAdmin: null,
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this);

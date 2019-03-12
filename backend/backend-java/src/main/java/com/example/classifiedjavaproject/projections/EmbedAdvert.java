@@ -12,4 +12,5 @@ public interface EmbedAdvert {
     String getCategory();
     double getAskingPrice();
     Admin getAdmin();
+    Long getId();
 }
