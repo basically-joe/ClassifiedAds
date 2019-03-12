@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Advert from '../components/Advert'
 import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
 import UpdateForm from "../components/UpdateForm"
 import NavBar from "../components/NavBar"
 import ErrorPage from "../components/ErrorPage"
-
+import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 class ClassifiedBox extends Component {
     constructor(props) {
