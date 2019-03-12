@@ -1,22 +1,47 @@
 import React from 'react'
-import LikesCounter from "../components/LikesCounter"
+import LikesCounter from "./LikesCounter"
 
 const AdvertList = ({adverts}) => {
+
     if (!adverts) return null;
+    console.log(adverts)
+
+
     const advertNodes = adverts.map(advert => {
+
         return (
-            <div key = {advert.category}>
-            <LikesCounter/>
-            <h1>{advert.title}</h1>
-            <p>{advert.category}</p>
-            <p>{advert.askingPrice}</p>
-            <p>{advert.description}</p>
+           
+
+            <div key = {advert.title} className = "individual-ad-box-column">
+                <h1>{advert.title}</h1>
+                <img src={ (advert.image)}></img>
+                <p>{advert.category}</p>
+                <p>{advert.askingPrice}</p>
+                <p>{advert.description}</p>
+                <LikesCounter/>
+
+                <input
+                    type= "submit"
+                    value= "Delete"
+                    onClick={removeAdvert}
+                />
             </div>
+            
         )
     })
+    console.log(advertNodes)
+    // console.log()
+
+    function removeAdvert(e){
+        // e.preventDefault();
+        let advert = advertNodes.key;
+       return advertNodes.splice(advert, 1);
+
+    };
+    
 
     return(
-        <div className="advert-list">
+        <div className="advert-list-row">
             {advertNodes}
         </div>
     )
