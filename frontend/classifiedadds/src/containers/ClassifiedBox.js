@@ -84,7 +84,7 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
-        console.log(updatedAdvert)
+     
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
         fetch("http://localhost:8080/adverts/{id}", {
@@ -103,8 +103,6 @@ class ClassifiedBox extends Component {
         this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
   
-
-
     handleAdvertSelect(categoryToFilterBy){
         const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
         console.log(selectedAdverts)
@@ -113,8 +111,6 @@ class ClassifiedBox extends Component {
 
 
     render() {
-        // console.log(this.state.advertToUpdate)
-        console.log(this.state.renderUpdateComponent)
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>

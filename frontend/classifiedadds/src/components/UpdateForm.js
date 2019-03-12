@@ -18,7 +18,7 @@ class UpdateForm extends Component{
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)  
-        // this.handleSubmit = this.handleSubmit.bind(this)
+     
   
     }
 
@@ -42,21 +42,19 @@ handleCategory1Change(e) {
     this.setState({ category: e.target.value })
 }
 
-// handleSubmit(e) {
-//     e.preventDefault();
+handleUpdate(e){
+    this.props.handleAdUpdate(this.state)
+    this.setState({askingPrice: this.state.askingPrice})
+}
 
-//     const updatedAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
-//     this.props.handleAdSubmit(updatedAd)
-//     this.setState({ askingPrice: "", category: "", description: "", title: "" })
-// }
 
-    render() {
+render() {
         console.log(this.state)
         return (
             
             <form
                 className="update-ad-form"
-                onSubmit={this.handleAdUpdate}
+                onSubmit={this.handleUpdate}
             >
 
                 <input
