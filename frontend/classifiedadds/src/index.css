@@ -1,8 +1,18 @@
 header {
-  background-image: url(./logo3.jpeg);
+  background-image: url(./logo1.png);
   background-size: cover;
-  width: 100px;
-  height: 100px;
+  background-position: right;
+  margin-left: 40px;
+  width: 400px;
+  height: 80px;
+  size: 50%;
+
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 50%;
+  max-width: 400px;
+  max-height: 100px;
 
 }
 
