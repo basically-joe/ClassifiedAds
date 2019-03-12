@@ -5,20 +5,24 @@
     width: 100%;
     align-items: center;
     justify-content: center;
+    background-color: #DCDCDC
+
+
   }
-  
+
   .individual-ad-box-column{
-  
+
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
-    flex: 50%;  
-
-    border: 1px;
+    flex: 50%;
+    border: 2px solid #BE975B;
     border-style: solid;
-    max-width: 400px;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    border-radius: 10px;
+    max-width: 800px;
+    max-height: 200px;
+    margin: 4px;
+    padding: 4px;
+    text-align: left;
+    border-radius: 3px;
+    background-color: #F5F5F5;
   }

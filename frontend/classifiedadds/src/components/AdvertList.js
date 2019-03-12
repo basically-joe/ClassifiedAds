@@ -8,7 +8,7 @@ const AdvertList = ({adverts}) => {
     const advertNodes = adverts.map(advert => {
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
-            <h1>{advert.title}</h1>
+            <h3>{advert.title}</h3>
             <p>{advert.category}</p>
             <p>{advert.askingPrice}</p>
             <p>{advert.description}</p>

@@ -1,15 +1,25 @@
 form {
 padding: 5px;
 margin:10px;
-border: 1px;
+border: 2px solid #BE975B;
 border-style: solid;
-border-radius: 10px;
-max-width: 250px;
+border-radius: 5px;
+max-width: 400px;
+max-height: 200px;
+background-color: #DCDCDC;
+font-size: 16px;
+margin-left: 3%;
+/* margin-right: auto; */
+
 }
 
 .radio-buttons{
-margin:4px;
-border: 1px;
-border-style: solid;
-border-radius: 10px;
+margin:15px;
+border: 2px solid #BE975B;
+border-style: solid gray;
+border-radius: 5px;
+background-color: #F5F5F5;
+align-items: center;
+justify-content: center;
+
 }

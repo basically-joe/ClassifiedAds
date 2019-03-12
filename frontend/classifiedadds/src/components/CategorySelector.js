@@ -2,7 +2,7 @@ import React from 'react';
 
 const CategorySelector = (props) => {
   const options = props.category.map((category, index) => {
-    return <option value={index} key={index}>{category.name}</option>
+    return <option value={index} key={index}>{category.category}</option>
   })
 
   function handleChange(event) {
