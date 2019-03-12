@@ -5,7 +5,7 @@ import CategorySelector from "../components/CategorySelector"
 import UpdateForm from "../components/UpdateForm"
 import NavBar from "../components/NavBar"
 import ErrorPage from "../components/ErrorPage"
-import { BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 class ClassifiedBox extends Component {
     constructor(props) {
@@ -119,35 +119,35 @@ class ClassifiedBox extends Component {
         return (
             <Router>
                 <Fragment>
-                    <NavBar/>
+                    <NavBar />
                     <Switch>
                         <Route
-                        path="/createad"
-                        render= {() =>
-                        <div>
-                        <AdForm onAdSubmit={this.handleAdSubmit} />
-                        <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                        <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
-                        {this.state.renderUpdateComponent && (
-                            <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
-                        )}
-                    </div>
-                        }
+                            path="/createad"
+                            render={() =>
+                                <div>
+                                    <AdForm onAdSubmit={this.handleAdSubmit} />
+                                    <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
+                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                                    {this.state.renderUpdateComponent && (
+                                        <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
+                                    )}
+                                </div>
+                            }
                         />
                         <Route
-                        path="/"
-                        render= {() =>
-            <div>
-                <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
-                {this.state.renderUpdateComponent && (
-                    <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
-                )}
-            </div>
-                        }
-            />
-            </Switch>
-            </Fragment>
+                            path="/"
+                            render={() =>
+                                <div>
+                                    <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
+                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                                    {this.state.renderUpdateComponent && (
+                                        <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
+                                    )}
+                                </div>
+                            }
+                        />
+                    </Switch>
+                </Fragment>
             </Router>
         )
     }
