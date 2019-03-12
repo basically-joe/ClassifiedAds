@@ -1,57 +1,58 @@
-import React, { Component } from "react"
+import React, {Component} from 'react';
 
-class AdForm extends Component {
-
-    constructor(props) {
-        super(props)
+class UpdateForm extends Component{
+    
+    constructor(props){
+        // props will be passed the whole advert object from onSubmit of button
+        // we will have access to the ID which we need in order to send to DB
+        super(props);
         this.state = {
-            askingPrice: "",
-            category: "",
-            description: "",
-            title: "",
+            askingPrice: this.props.advert.askingPrice,
+            category: this.props.advert.category,
+            description: this.props.advert.description,
+            title: this.props.advert.title,
+            id: this.props.advert.id
         }
 
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
-        this.handleCategory1Change = this.handleCategory1Change.bind(this)
-
-        this.handleSubmit = this.handleSubmit.bind(this)
-
-    }
-
-    handleaskingPriceChange(e) {
-        this.setState({ askingPrice: parseInt(e.target.value) })
-    }
-
-    handleDescriptionChange(e) {
-        this.setState({ description: e.target.value })
-    }
-
-    handleTitleChange(e) {
-        this.setState({ title: e.target.value })
-    }
-
-    handleCategory1Change(e) {
-        this.setState({ category: e.target.value })
-    }
-
-    handleSubmit(e) {
-        e.preventDefault();
-
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
-        this.props.onAdSubmit(newAd)
-        this.setState({ askingPrice: "", category: "", description: "", title: "" })
+        this.handleCategory1Change = this.handleCategory1Change.bind(this)  
+        this.handleUpdate = this.handleUpdate.bind(this)
+  
     }
 
 
-    render() {
-        
+handleaskingPriceChange(e) {
+    this.setState({ askingPrice: parseInt(e.target.value) })
+}
+
+handleDescriptionChange(e) {
+    this.setState({ description: e.target.value })
+}
+
+handleTitleChange(e) {
+    this.setState({ title: e.target.value })
+}
+
+handleCategory1Change(e) {
+    this.setState({ category: e.target.value })
+}
+
+handleUpdate(e){
+    e.preventDefault()
+    debugger
+    this.props.handleAdUpdate(this.state)
+    this.setState({askingPrice: this.state.askingPrice})
+}
+
+
+render() {
+        console.log(this.state)
         return (
+            <React.Fragment>
             
-            <form
-                className="ad-form"
-                onSubmit={this.handleSubmit}
+            <form 
             >
 
                 <input
@@ -111,13 +112,18 @@ class AdForm extends Component {
 
                 <input
                     type="submit"
-                    value="Post"
+                    value="Post" 
                 />
+                <button onClick={this.handleUpdate} >awdawda</button>
+
             </form>
+            </React.Fragment>
             
         )
     }
+
+
+
 }
 
-
-export default AdForm;
+export default UpdateForm;
