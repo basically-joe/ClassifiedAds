@@ -14,10 +14,6 @@ class UpdateForm extends Component{
             id: this.props.id
         }
 
-
-
-
-
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -26,6 +22,7 @@ class UpdateForm extends Component{
   
     }
 
+   
 
 
 
@@ -49,14 +46,12 @@ handleSubmit(e) {
     e.preventDefault();
 
     const updatedAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
-    this.props.onUpdateSubmit(updatedAd)
+    this.props.handleAdSubmit(updatedAd)
     this.setState({ askingPrice: "", category: "", description: "", title: "" })
 }
 
-
-
     render() {
-        
+        console.log(this.state)
         return (
             
             <form

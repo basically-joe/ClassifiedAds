@@ -1,9 +1,7 @@
 import React from 'react'
 
-const Advert = ({adverts, handleAdvertToUpdate}) => {
+const Advert = ({adverts, handleAdvertToUpdate, onAdDelete}) => {
 
-
-    
     const advertNodes = adverts.map((advert) => {
     
         return (
@@ -16,6 +14,7 @@ const Advert = ({adverts, handleAdvertToUpdate}) => {
             <button onClick = {()=> {handleAdvertToUpdate(advert)
                 console.log("HI")
             }}>Update</button>
+            <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             </div> 
         )
     })

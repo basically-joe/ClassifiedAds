@@ -11,7 +11,8 @@ class ClassifiedBox extends Component {
         super(props);
         this.state = {
             admins: [],
-            adverts: [],
+            advertsDB: [],
+            advertsToShow: [],
             renderUpdateComponent: false,
             advertToUpdate: {}
         }
@@ -20,6 +21,8 @@ class ClassifiedBox extends Component {
         this.handleAdvertSelect = this.handleAdvertSelect.bind(this)
         this.handleAdUpdate = this.handleAdUpdate.bind(this)
         this.handleAdvertToUpdate = this.handleAdvertToUpdate.bind(this)
+        this.handleAdDelete = this.handleAdDelete.bind(this)
+        this.updateAdvertsArray = this.updateAdvertsArray.bind(this)
 
     }
 
@@ -34,7 +37,7 @@ class ClassifiedBox extends Component {
         fetch(url2)
             .then(res => res.json())
             .then(data => {
-                this.setState({ adverts: data._embedded.adverts })
+                this.setState({ advertsDB: data._embedded.adverts })
 
             })
     }
@@ -50,10 +53,35 @@ class ClassifiedBox extends Component {
                 "Content-Type": "application/json",
             },
         });
-        const updatedAds = [...this.state.adverts, newAdvert]
-        this.setState({adverts: updatedAds})
+        const updatedAds = [...this.state.advertsDB, newAdvert]
+        this.setState({advertsDB: updatedAds})
     }
 
+    updateAdvertsArray(idToCheck){
+
+        let objectToUse = this.state.advertsDB.find((advert) => {
+            return advert.id === idToCheck
+    })
+
+        return this.state.advertsDB.indexOf(objectToUse)
+    }
+
+    handleAdDelete(itemId){
+
+        const indexToDelete = this.updateAdvertsArray(itemId);
+        let adverts = this.state.advertsDB
+        adverts.splice(indexToDelete, 1)
+
+        this.setState({advertsDB: adverts})
+
+        fetch(`http://localhost:8080/adverts/${itemId}`, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+    }
 
     handleAdUpdate(updatedAdvert){
         console.log(updatedAdvert)
@@ -66,8 +94,8 @@ class ClassifiedBox extends Component {
                 "Content-Type": "application/json",
             },
         });
-        const advertsWithUpdatedAd = [...this.state.adverts, updatedAdvert]
-        this.setState({adverts: advertsWithUpdatedAd})
+        const advertsWithUpdatedAd = [...this.state.advertsDB, updatedAdvert]
+        this.setState({advertsDB: advertsWithUpdatedAd})
     }
   
 
@@ -75,7 +103,7 @@ class ClassifiedBox extends Component {
     handleAdvertSelect(categoryToFilterBy){
         const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
         console.log(selectedAdverts)
-        this.setState({adverts: selectedAdverts})
+        this.setState({advertsDB: selectedAdverts})
     }
 
     handleAdvertToUpdate(advert){
@@ -88,10 +116,10 @@ class ClassifiedBox extends Component {
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
-                <CategorySelector adverts={this.state.adverts} onCategorySelected = {this.handleAdvertSelect}/>
-                <Advert adverts={this.state.adverts}  handleAdvertToUpdate={this.handleAdvertToUpdate}/>
+                <CategorySelector adverts={this.state.advertsDB} onCategorySelected = {this.handleAdvertSelect}/>
+                <Advert adverts={this.state.advertsDB}  handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}/>
                 {this.state.renderUpdateComponent && (
-                     <UpdateForm advert={this.state.advertToUpdate} onUpdateSubmit = {this.handleAdUpdate}/>
+                     <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate = {this.handleAdUpdate}/>
                 )}
                 
             </div>
