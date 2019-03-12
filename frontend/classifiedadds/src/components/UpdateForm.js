@@ -22,8 +22,6 @@ class UpdateForm extends Component{
   
     }
 
-   
-
 
 
 handleaskingPriceChange(e) {
@@ -114,7 +112,7 @@ render() {
 
                 <input
                     type="submit"
-                    value="Put"
+                    value="Post"
                 />
             </form>
             
