@@ -11,12 +11,15 @@ class ClassifiedBox extends Component {
         super(props);
         this.state = {
             admins: [],
-            adverts: []
+            adverts: [],
+            renderUpdateComponent: false,
+            advertToUpdate: {}
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this)
         this.handleAdvertSelect = this.handleAdvertSelect.bind(this)
         this.handleAdUpdate = this.handleAdUpdate.bind(this)
+        this.handleAdvertToUpdate = this.handleAdvertToUpdate.bind(this)
 
     }
 
@@ -75,15 +78,21 @@ class ClassifiedBox extends Component {
         this.setState({adverts: selectedAdverts})
     }
 
+    handleAdvertToUpdate(advert){
+        console.log(advert)
+        this.setState({advertToUpdate: advert, renderUpdateComponent: true})
+    }
+
     render() {
 
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
                 <CategorySelector adverts={this.state.adverts} onCategorySelected = {this.handleAdvertSelect}/>
-                <Advert adverts={this.state.adverts}/>
-                <UpdateForm adverts={this.state.adverts} onUpdateSubmit = {this.handleAdUpdate}/>
-        
+                <Advert adverts={this.state.adverts}  handleAdvertToUpdate={this.handleAdvertToUpdate}/>
+                {this.state.renderUpdateComponent && (
+                     <UpdateForm advert={this.state.advertToUpdate} onUpdateSubmit = {this.handleAdUpdate}/>
+                )}
                 
             </div>
         )

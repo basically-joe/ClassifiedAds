@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Advert = ({adverts}) => {
+const Advert = ({adverts, handleAdvertToUpdate}) => {
 
 
     
     const advertNodes = adverts.map((advert) => {
-        console.log(advert.admin)
+    
 
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
@@ -14,6 +14,9 @@ const Advert = ({adverts}) => {
             <p>{advert.askingPrice}</p>
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
+            <button onClick = {()=> {handleAdvertToUpdate(advert)
+                console.log("HI")
+            }}>Update</button>
             </div> 
         )
     })

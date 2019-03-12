@@ -1,14 +1,22 @@
 import React, {Component} from 'react';
 
 class UpdateForm extends Component{
+    
     constructor(props){
+        // props will be passed the whole advert object from onSubmit of button
+        // we will have access to the ID which we need in order to send to DB
         super(props);
         this.state = {
-            askingPrice: "",
-            category: "",
-            description: "",
-            title: "",
+            askingPrice: this.props.askingPrice,
+            category: this.props.category,
+            description: this.props.description,
+            title: this.props.title,
+            id: this.props.id
         }
+
+
+
+
 
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
