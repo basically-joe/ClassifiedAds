@@ -2,21 +2,25 @@ import React from 'react';
 
 const CategorySelector = ({adverts, onCategorySelected}) => {
    
+    const newArrayOfValues = [];
 
-
-    const options = adverts.map((advert, index)=> {
-        return <option value={advert.category} key={index}>{advert.category}</option>
+    const allCategories = adverts.map((advert)=> {
+        return newArrayOfValues.push(advert.category)
     })
 
+    let unique = [...new Set(newArrayOfValues)]; 
+
+    const options = unique.map((advert, index)=> {
+        return <option value={advert} key={index}>{advert}</option>
+    })
 
     function handleChange(event){
-       console.log(event.target.value)
         onCategorySelected(event.target.value)
     }
 
     return(
         <select id="category-selector" onChange={handleChange} defaultValue = "default">
-        <option value="default">Filter By Category / View All</option>
+        <option value="default">Category filter / View all</option>
         {options}
         </select>
     )
