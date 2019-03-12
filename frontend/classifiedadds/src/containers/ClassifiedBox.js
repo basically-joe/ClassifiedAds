@@ -117,6 +117,10 @@ class ClassifiedBox extends Component {
     render() {
         console.log(this.state.advertToUpdate)
         return (
+            <Router>
+                <Fragment>
+                    <NavBar/>
+                    <Switch>
             <div>
                 <AdForm onAdSubmit={this.handleAdSubmit} />
                 <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
@@ -126,6 +130,9 @@ class ClassifiedBox extends Component {
                 )}
 
             </div>
+            </Switch>
+            </Fragment>
+            </Router>
         )
     }
 }
