@@ -58,7 +58,7 @@ class AdForm extends Component {
                 onSubmit={this.handleSubmit}
             >
                 <input
-                    type="file"
+                    type="text"
                     placeholder="Insert an image..."
                     value={this.state.image}
                     onChange={this.handleImageChange}
