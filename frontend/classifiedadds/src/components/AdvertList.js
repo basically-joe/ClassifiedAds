@@ -8,9 +8,7 @@ const AdvertList = ({adverts, onAdDelete}) => {
 
     const advertNodes = adverts.map(advert => {
     
-        console.log(advert)
-
-    
+        console.log(advert.id)
         
         return (
            

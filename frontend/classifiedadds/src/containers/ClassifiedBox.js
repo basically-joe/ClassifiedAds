@@ -61,26 +61,23 @@ class ClassifiedBox extends Component {
         this.setState({advertsDB: updatedAds})
     }
 
-    handleAdDelete(itemToDelete){
-        console.log(itemToDelete)
-    
+    handleAdDelete(itemId){
+        console.log(itemId)
+        
 
-        fetch("http://localhost:8080/adverts/{id}", {
+        fetch(`http://localhost:8080/adverts/${itemId}`, {
 
             method: 'DELETE',
-            body: itemToDelete,
             headers: {
                 "Content-Type": "application/json",
             }
             
         });
 
-        // const = advertsWithoutDeleteItem = 
-    }
+        // const latestAdvertsDB = {...this.state.advertsDB.splice[0]}
+        // this.setState({advertsDB: latestAdvertsDB})
 
-    // checkArray (){
-    //     if(object we pass in matches the id of the object in the Array, capure index position and return)
-    // }
+    }
 
     render() {
         return (
