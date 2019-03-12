@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategorySelector = ({adverts, advertsToShow, onCategorySelected}) => {
+const CategorySelector = ({adverts, onCategorySelected}) => {
     const options = adverts.map((advert, index)=> {
         return <option value={advert.category} key={index}>{advert.category}</option>
     })

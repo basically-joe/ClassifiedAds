@@ -119,7 +119,7 @@ class ClassifiedBox extends Component {
         return (
              <div>
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
-                <CategorySelector adverts={this.state.advertsDB} advertsToShow = {this.state.advertsToShow} onCategorySelected = {this.handleAdvertSelect}/>
+                <CategorySelector adverts={this.state.advertsDB} onCategorySelected = {this.handleAdvertSelect}/>
                 <Advert adverts={this.state.advertsDB} advertsToShow = {this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}/>
                 {this.state.renderUpdateComponent && (
                      <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate = {this.handleAdUpdate}/>
