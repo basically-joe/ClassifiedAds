@@ -10,12 +10,12 @@ class ClassifiedBox extends Component {
         super(props);
         this.state = {
             admins: [],
-            adverts: [],
-            selectedAdvert: null
+            adverts: []
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this)
         this.handleAdvertSelect = this.handleAdvertSelect.bind(this)
+        this.handleAdUpdate = this.handleAdUpdate.bind(this)
 
     }
 
@@ -25,13 +25,13 @@ class ClassifiedBox extends Component {
 
         fetch(url)
             .then(res => res.json())
-            // .then(data => console.log(data))
+       
 
         fetch(url2)
             .then(res => res.json())
             .then(data => {
                 this.setState({ adverts: data._embedded.adverts })
-                // console.log(data);
+
             })
     }
 
@@ -50,7 +50,23 @@ class ClassifiedBox extends Component {
         const updatedAds = [...this.state.adverts, newAdvert]
         this.setState({adverts: updatedAds})
     }
+
+
+    handleAdUpdate(updatedAdvert){
+        const dataToUpdate = JSON.stringify(updatedAdvert)
+
+        fetch("http://localhost:8080/adverts/{id}", {
+            method: 'PUT',
+            body: dataToUpdate,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const advertsWithUpdatedAd = [...this.state.adverts, updatedAdvert]
+        this.setState({adverts: advertsWithUpdatedAd})
+    }
   
+    
 
     handleAdvertSelect(categoryToFilterBy){
         const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
@@ -65,6 +81,7 @@ class ClassifiedBox extends Component {
                 <AdForm onAdSubmit = {this.handleAdSubmit}/>
                 <CategorySelector adverts={this.state.adverts} onCategorySelected = {this.handleAdvertSelect}/>
                 <Advert adverts={this.state.adverts}/>
+                <UpdateForm adverts={this.state.adverts} onUpdateSubmit = {this.handleAdUpdate}/>
         
                 
             </div>
