@@ -6,7 +6,6 @@ const Advert = ({adverts, handleAdvertToUpdate}) => {
     
     const advertNodes = adverts.map((advert) => {
     
-
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
