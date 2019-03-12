@@ -24,21 +24,34 @@ public class Advert {
     @Column(name="asking_price")
     private double askingPrice;
 
+    @Column(name="image")
+    private String image;
+
+
     @ManyToOne
     @JoinColumn(name="admin_id", nullable = true)
     private Admin admin;
 
-    public Advert(String category, String description, String title, double askingPrice, Admin admin ){
+    public Advert(String image, String category, String description, String title, double askingPrice, Admin admin ){
 
         this.category = category;
         this.description = description;
         this.title = title;
         this.askingPrice = askingPrice;
         this.admin = admin;
+        this.image = image;
     }
 
     public Advert(){
 
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Long getId() {
