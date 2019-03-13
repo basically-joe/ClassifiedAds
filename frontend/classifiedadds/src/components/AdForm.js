@@ -10,7 +10,8 @@ class AdForm extends Component {
             category: "",
             description: "",
             title: "",
-            admins: this.props.admins
+            admins: this.props.admins,
+            adminRender: ""
         }
 
         this.handleImageChange = this.handleImageChange.bind(this)
@@ -20,6 +21,7 @@ class AdForm extends Component {
         this.handleCategory1Change = this.handleCategory1Change.bind(this)
         this.getAdminById = this.getAdminById.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.returnAdminNameById = this.returnAdminNameById.bind(this)
 
     }
 
@@ -29,11 +31,18 @@ class AdForm extends Component {
         let id 
         for (const admin of this.state.admins){
             if (admin.userName === userName)
-            console.log(this.props.admins)
             id = admin.id;
         }
-        console.log(id)
         return id;
+    }
+
+    returnAdminNameById(id){
+        let name
+        for (const admin of this.state.admins){
+            if (admin.id === id)
+            name = admin.userName
+        }
+        return name
     }
 
     handleImageChange(e){
@@ -57,19 +66,21 @@ class AdForm extends Component {
     }
     
     handlAdminSelect(e){
-        this.setState({admin: e.target.value})
+        const name = this.returnAdminNameById(e.target.value)
+        this.setState({adminRender: name})
     }
 
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image }
+        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image, adminRender: this.state.adminRender }
         this.props.onAdSubmit(newAd)
-        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "" })
+        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "", adminRender: "" })
     }
 
 
     render() {
+     
         if (this.state.admins.length) {
         return (
             
@@ -106,11 +117,11 @@ class AdForm extends Component {
                     onChange={this.handleTitleChange}
                 /><br/>
 
-            <select>
+            <select onChange={this.handleAdminSelect}>
                 <option>Choose An Admin</option>
                 <option value={this.getAdminById('raul_2000')}>raul_2000</option>
-                <option>gilroy_ms</option>
-                <option>tony_piano_fingers</option>
+                <option value={this.getAdminById('gilroy_ms')}>gilroy_ms</option>
+                <option value={this.getAdminById("tony_piano_fingers")}>tony_piano_fingers</option>
             </select>
 
 

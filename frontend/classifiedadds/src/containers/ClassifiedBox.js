@@ -119,6 +119,8 @@ class ClassifiedBox extends Component {
         this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
 
+    
+
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         this.setState({advertsToShow: selectedAdverts})
