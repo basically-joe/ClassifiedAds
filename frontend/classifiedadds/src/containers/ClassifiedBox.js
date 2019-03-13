@@ -34,6 +34,9 @@ class ClassifiedBox extends Component {
 
         fetch(url)
             .then(res => res.json())
+            .then(data => {
+                this.setState({admins: data._embedded.admins})
+            })
 
 
         fetch(url2)
@@ -121,7 +124,11 @@ class ClassifiedBox extends Component {
         this.setState({advertsToShow: selectedAdverts})
     }
 
+  
+
     render() {
+
+        if (this.state.admins.length && this.state.advertsDB){
         return (
             <Router>
                 <Fragment>
@@ -131,7 +138,7 @@ class ClassifiedBox extends Component {
                             path="/createad"
                             render={() =>
                                     <Fragment>
-                                    <AdForm onAdSubmit={this.handleAdSubmit} />
+                                    <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
                                     <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
                                     {this.state.renderUpdateComponent && (
@@ -155,8 +162,11 @@ class ClassifiedBox extends Component {
                     </Switch>
                 </Fragment>
             </Router>
-        )
+        )}
+        else{
+            return <div>"BE PATIENT, I AM LOADING"</div>
     }
+}
 
 
 }

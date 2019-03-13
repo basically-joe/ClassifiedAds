@@ -11,10 +11,6 @@ class UpdateForm extends Component{
             category: this.props.advert.category,
             description: this.props.advert.description,
             title: this.props.advert.title,
-            admin: {
-                userName: this.props.advert.admin.userName,
-                clientName: this.props.advert.admin.clientName
-            },
             id: this.props.advert.id
         }
 
@@ -49,7 +45,7 @@ handleCategory1Change(e) {
 handleUpdate(e){
     e.preventDefault()
     this.props.handleAdUpdate(this.state)
-    this.setState({askingPrice: this.state.askingPrice})
+
 }
 
 

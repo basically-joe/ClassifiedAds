@@ -10,6 +10,7 @@ class AdForm extends Component {
             category: "",
             description: "",
             title: "",
+            admins: this.props.admins
         }
 
         this.handleImageChange = this.handleImageChange.bind(this)
@@ -17,9 +18,22 @@ class AdForm extends Component {
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)
-
+        this.getAdminById = this.getAdminById.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
 
+    }
+
+  
+
+    getAdminById(userName){
+        let id 
+        for (const admin of this.state.admins){
+            if (admin.userName === userName)
+            console.log(this.props.admins)
+            id = admin.id;
+        }
+        console.log(id)
+        return id;
     }
 
     handleImageChange(e){
@@ -41,6 +55,10 @@ class AdForm extends Component {
     handleCategory1Change(e) {
         this.setState({ category: e.target.value })
     }
+    
+    handlAdminSelect(e){
+        this.setState({admin: e.target.value})
+    }
 
     handleSubmit(e) {
         e.preventDefault();
@@ -52,7 +70,7 @@ class AdForm extends Component {
 
 
     render() {
-        
+        if (this.state.admins.length) {
         return (
             
             <form
@@ -87,6 +105,17 @@ class AdForm extends Component {
                     value={this.state.title}
                     onChange={this.handleTitleChange}
                 /><br/>
+
+            <select>
+                <option>Choose An Admin</option>
+                <option value={this.getAdminById('raul_2000')}>raul_2000</option>
+                <option>gilroy_ms</option>
+                <option>tony_piano_fingers</option>
+            </select>
+
+
+
+
                 <div className="radio-buttons">
                 <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
@@ -130,7 +159,10 @@ class AdForm extends Component {
                 />
             </form>
             
-        )
+        )}
+        else{
+            return <div>BE PATIENT, I'M LOADING</div>
+        }
     }
 }
 
