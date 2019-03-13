@@ -14,11 +14,10 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.askingPrice}</p>
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
-            <LikesCounter/>
             <button onClick = {()=> {handleAdvertToUpdate(advert)
-                console.log("HI")
             }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
+            <LikesCounter advert = {advert.likes_counter}/>
             </div> 
         )
     })
@@ -41,11 +40,11 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.askingPrice}</p>
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
-            <LikesCounter/>
             <button onClick = {()=> {handleAdvertToUpdate(advert)
-                console.log("HI")
             }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
+            <LikesCounter advert = {advert.likes_counter}/>
+
             </div> 
         )
     })

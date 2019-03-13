@@ -27,12 +27,15 @@ public class Advert {
     @Column(name="image")
     private String image;
 
+    @Column(name="likes_counter")
+    private Integer likes_counter;
+
 
     @ManyToOne
     @JoinColumn(name="admin_id", nullable = true)
     private Admin admin;
 
-    public Advert(String image, String category, String description, String title, double askingPrice, Admin admin ){
+    public Advert(Integer likes_counter, String image, String category, String description, String title, double askingPrice, Admin admin ){
 
         this.category = category;
         this.description = description;
@@ -40,6 +43,7 @@ public class Advert {
         this.askingPrice = askingPrice;
         this.admin = admin;
         this.image = image;
+        this.likes_counter = likes_counter;
     }
 
     public Advert(){
@@ -48,6 +52,14 @@ public class Advert {
 
     public String getImage() {
         return image;
+    }
+
+    public Integer getLikes_counter() {
+        return likes_counter;
+    }
+
+    public void setLikes_counter(Integer likes_counter) {
+        this.likes_counter = likes_counter;
     }
 
     public void setImage(String image) {

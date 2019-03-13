@@ -14,4 +14,5 @@ public interface EmbedAdvert {
     Admin getAdmin();
     Long getId();
     String getImage();
+    Integer getLikes_counter();
 }

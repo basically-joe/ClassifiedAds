@@ -10,6 +10,7 @@ class AdForm extends Component {
             category: "",
             description: "",
             title: "",
+            
         }
 
         this.handleImageChange = this.handleImageChange.bind(this)
@@ -17,10 +18,11 @@ class AdForm extends Component {
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)
-
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
+
+   
 
     handleImageChange(e){
         this.setState({image: e.target.value})
@@ -45,9 +47,9 @@ class AdForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image }
+        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image}
         this.props.onAdSubmit(newAd)
-        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "" })
+        this.setState({  image: "", askingPrice: "", category: "", description: "", title: "" })
     }
 
 
