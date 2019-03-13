@@ -50,7 +50,7 @@ class AdForm extends Component {
 
         const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image, likes_counter: this.state.likes_counter}
         this.props.onAdSubmit(newAd)
-        this.setState({  image: "", askingPrice: "", category: "", description: "", title: "" })
+        this.setState({  likes_counter: "", image: "", askingPrice: "", category: "", description: "", title: "" })
     }
 
 
