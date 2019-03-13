@@ -72,7 +72,6 @@ class ClassifiedBox extends Component {
         console.log(indexToDelete)
         let newAdverts = [...this.state.advertsDB]
 
-        console.log(newAdverts)
         newAdverts.splice(indexToDelete, 1)
 
         this.setState({ advertsDB: newAdverts })
@@ -86,35 +85,40 @@ class ClassifiedBox extends Component {
 
     }
 
-    handleAdUpdate(updatedAdvert) {
-        // debugger;
+    handleAdUpdate(updatedAdvert){
+        const id = updatedAdvert.id;           
         const dataToUpdate = JSON.stringify(updatedAdvert)
-        console.log(dataToUpdate);
-        fetch("http://localhost:8080/adverts/{id}", {
+
+    
+        fetch(`http://localhost:8080/adverts/${id}`, {
             method: 'PUT',
             body: dataToUpdate,
             headers: {
                 "Content-Type": "application/json",
             },
         });
-        const advertsWithUpdatedAd = [...this.state.advertsDB, updatedAdvert]
-        this.setState({ advertsDB: advertsWithUpdatedAd })
+
+
+        const indexToDelete = this.updateAdvertsArray(id);
+        let newAdverts = [...this.state.advertsDB]
+
+        newAdverts.splice(indexToDelete, 1)
+        newAdverts.push(updatedAdvert)
+
+        this.setState({advertsDB: newAdverts})
     }
 
-    handleAdvertToUpdate(advert) {
-        console.log(advert)
-        this.setState({ advertToUpdate: advert, renderUpdateComponent: true })
+    handleAdvertToUpdate(advert){
+        this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
 
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
-        console.log(selectedAdverts)
-        this.setState({ advertsToShow: selectedAdverts })
+        this.setState({advertsToShow: selectedAdverts})
     }
 
 
     render() {
-        console.log(this.state.advertToUpdate)
         return (
             <Router>
                 <Fragment>
