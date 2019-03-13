@@ -21,14 +21,14 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
-/* .c-modal  {
+.c-modal  {
       left: 50%;
       top: 50%;
       height: auto;
       transform: translate(-50%, -50%);
       max-width: 30em;
       max-height: calc(100% - 1em);
-    } */
+    }
   
 
   .c-modal__close {
