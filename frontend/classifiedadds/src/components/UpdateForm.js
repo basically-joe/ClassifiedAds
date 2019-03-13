@@ -45,7 +45,7 @@ handleCategory1Change(e) {
 handleUpdate(e){
     e.preventDefault()
     this.props.handleAdUpdate(this.state)
-    this.setState({askingPrice: this.state.askingPrice})
+
 }
 
 

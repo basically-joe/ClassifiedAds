@@ -10,6 +10,9 @@ class AdForm extends Component {
             category: "",
             description: "",
             title: "",
+            admins: this.props.admins,
+            admin_id: "",
+            adminRender: ""
         }
 
         this.handleImageChange = this.handleImageChange.bind(this)
@@ -17,10 +20,13 @@ class AdForm extends Component {
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)
-
         this.handleSubmit = this.handleSubmit.bind(this)
-
+        this.handleAdminSelect = this.handleAdminSelect.bind(this)
+        this.returnOptions = this.returnOptions.bind(this)
+         
     }
+
+
 
     handleImageChange(e){
         this.setState({image: e.target.value})
@@ -41,18 +47,47 @@ class AdForm extends Component {
     handleCategory1Change(e) {
         this.setState({ category: e.target.value })
     }
+    
+    // Sneaky bit - adminRender  //
+    handleAdminSelect(e){
+        this.setState({admin_id: e.target.value, adminRender: e.target.value})
+    }
+
+    // Populates select //
+    returnOptions(){
+        return this.state.admins.map(admin => {
+            return <option key = {admin.id} value = {admin.id}>{admin.userName}</option>
+        })
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image }
+        const newAd = { 
+            askingPrice: this.state.askingPrice,
+            category: this.state.category,
+            description: this.state.description,
+            title: this.state.title,
+            image: this.state.image,
+            admin_id: this.state.admin_id,
+            adminRender: this.state.adminRender 
+        }
+
         this.props.onAdSubmit(newAd)
-        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "" })
+        this.setState({ image: "",
+             askingPrice: "", 
+             category: "", 
+             description: "",
+             title: "",
+             admin_id: "",
+             adminRender: "" })
     }
 
 
     render() {
-        
+     
+        if (this.state.admins.length) {
         return (
             
             <form
@@ -75,19 +110,28 @@ class AdForm extends Component {
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
                 /><br/>
+
                 <input
                     type="text"
                     placeholder="Description..."
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
                 /><br/>
+
                 <input
                     type="text"
                     placeholder="Title..."
                     value={this.state.title}
                     onChange={this.handleTitleChange}
                 /><br/>
-                <div className="radio-buttons">
+
+                <select onChange={this.handleAdminSelect}>
+                  <option>Choose An Admin</option>
+                      {this.returnOptions()}
+                </select>
+
+
+             <div className="radio-buttons">
                 <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
                         checked={this.state.category === "Beauty"}
@@ -130,7 +174,10 @@ class AdForm extends Component {
                 />
             </form>
             
-        )
+        )}
+        else{
+            return <div>BE PATIENT, I'M LOADING</div>
+        }
     }
 }
 
