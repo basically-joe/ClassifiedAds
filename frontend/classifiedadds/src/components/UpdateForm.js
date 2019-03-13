@@ -3,15 +3,16 @@ import React, {Component} from 'react';
 class UpdateForm extends Component{
     
     constructor(props){
-        // props will be passed the whole advert object from onSubmit of button
-        // we will have access to the ID which we need in order to send to DB
+
         super(props);
         this.state = {
+            image: this.props.advert.image,
             askingPrice: this.props.advert.askingPrice,
             category: this.props.advert.category,
             description: this.props.advert.description,
             title: this.props.advert.title,
-            id: this.props.advert.id
+            id: this.props.advert.id,
+            // likes: this.props.advert.likes_counter
         }
 
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
@@ -19,9 +20,17 @@ class UpdateForm extends Component{
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)  
         this.handleUpdate = this.handleUpdate.bind(this)
-  
+        this.handleImageChange = this.handleImageChange.bind(this)
+        // this.handlikesChange =this.handlikesChange.bind(this)
     }
 
+handleImageChange(e){
+    this.setState({image: e.target.value})
+ }
+
+//  handlikesChange(e) {
+//     this.setState({ likes: parseInt(e.target.value) })
+// }
 
 handleaskingPriceChange(e) {
     this.setState({ askingPrice: parseInt(e.target.value) })
@@ -41,19 +50,23 @@ handleCategory1Change(e) {
 
 handleUpdate(e){
     e.preventDefault()
-    debugger
     this.props.handleAdUpdate(this.state)
     this.setState({askingPrice: this.state.askingPrice})
 }
 
 
 render() {
-        console.log(this.state)
+      
         return (
             <React.Fragment>
             
-            <form 
-            >
+            <form >
+            <input
+                type="text"
+                placeholder="Enter a URL"
+                value = {this.state.image}
+                onChange={this.handleImageChange}
+            />
 
                 <input
                     type="number"
@@ -61,6 +74,7 @@ render() {
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
                 /><br/>
+
                 <input
                     type="text"
                     placeholder="Description..."
@@ -110,11 +124,7 @@ render() {
                     Furniture </label><br/>
                     </div>
 
-                <input
-                    type="submit"
-                    value="Post" 
-                />
-                <button onClick={this.handleUpdate} >awdawda</button>
+                <button onClick={this.handleUpdate} >Update</button>
 
             </form>
             </React.Fragment>

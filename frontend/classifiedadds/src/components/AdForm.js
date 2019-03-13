@@ -10,6 +10,7 @@ class AdForm extends Component {
             category: "",
             description: "",
             title: "",
+            likes_counter: 0
             
         }
 
@@ -47,7 +48,7 @@ class AdForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image}
+        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image, likes_counter: this.state.likes_counter}
         this.props.onAdSubmit(newAd)
         this.setState({  image: "", askingPrice: "", category: "", description: "", title: "" })
     }
@@ -76,6 +77,13 @@ class AdForm extends Component {
                     placeholder="Asking price..."
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
+                /><br/>
+
+                <input
+                    type="number"
+                    placeholder="Likes stuff"
+                    value={this.state.likes_counter}
+                    readOnly
                 /><br/>
                 <input
                     type="text"

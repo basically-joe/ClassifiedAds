@@ -2,7 +2,7 @@ import React from 'react'
 import LikesCounter from "./LikesCounter"
 
 const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete}) => {
-    console.log(advertsToShow)
+  
 if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     const advertNodes = adverts.map((advert)  => {
     
@@ -14,8 +14,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.askingPrice}</p>
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
-            <button onClick = {()=> {handleAdvertToUpdate(advert)
-            }}>Update</button>
+            <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             <LikesCounter advert = {advert.likes_counter}/>
             </div> 
