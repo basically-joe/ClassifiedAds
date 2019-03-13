@@ -24,10 +24,10 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
             <img alt="image_description" src={ (advert.image) }></img>
-            <p>{advert.category}</p>
-            <p>{advert.askingPrice}</p>
-            <p>{advert.description}</p>
-            <p>{advert.adminRender ? getAdminById(admins, advert.adminRender) : ""}</p>
+            <p>Category: {advert.category}</p>
+            <p>Asking Price: £{advert.askingPrice}</p>
+            <p>Description: {advert.description}</p>
+            <p>Posted By: {advert.adminRender ? getAdminById(admins, advert.adminRender) : ""}</p>
             <LikesCounter/>
             <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
