@@ -21,6 +21,7 @@ public class Admin {
         @Column(name="client_name")
         private String clientName;
 
+
         @JsonIgnore
         @OneToMany(mappedBy = "admin", cascade = CascadeType.REMOVE, orphanRemoval = true)
         private List<Advert> adverts;
@@ -29,13 +30,23 @@ public class Admin {
             this.userName = userName;
             this.clientName = clientName;
             this.adverts = new ArrayList<>();
+
         }
 
         public Admin(){
 
         }
 
-        public String getUserName() {
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public String getUserName() {
             return userName;
         }
 
