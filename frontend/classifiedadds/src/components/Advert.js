@@ -3,7 +3,7 @@ import React from 'react'
 const Advert = ({adverts, handleAdvertToUpdate, onAdDelete}) => {
 
     const advertNodes = adverts.map((advert) => {
-    
+
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
@@ -15,7 +15,7 @@ const Advert = ({adverts, handleAdvertToUpdate, onAdDelete}) => {
                 console.log("HI")
             }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
-            </div> 
+            </div>
         )
     })
 

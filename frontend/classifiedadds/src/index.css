@@ -2,9 +2,12 @@ header {
   background-image: url(./logo1.png);
   background-size: cover;
   background-position: right;
-  margin-left: 40px;
-  width: 400px;
-  height: 80px;
+  border: 2px solid #BE975B;
+  border-style: solid;
+  margin-left: 35px;
+  margin-top: 10px;
+  width: 450px;
+  height: 50px;
   size: 50%;
 
   display: flex;
