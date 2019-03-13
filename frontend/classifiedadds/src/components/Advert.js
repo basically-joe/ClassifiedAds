@@ -2,10 +2,10 @@ import React from 'react'
 import LikesCounter from "./LikesCounter"
 
 const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete}) => {
-  
+
 if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     const advertNodes = adverts.map((advert)  => {
-    
+
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
@@ -17,14 +17,10 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <LikesCounter/>
             <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
-            </div> 
+            </div>
         )
     })
 
-<<<<<<< HEAD
-    const advertNodes = adverts.map((advert) => {
-
-=======
     return(
         <div className="advert-list-row">
             {advertNodes}
@@ -34,8 +30,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
 } else {
 
     const filteredNodes = advertsToShow.map((advert) => {
-    
->>>>>>> dev
+
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
@@ -53,7 +48,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
         )
     })
 
-    
+
 
     return(
         <div className="advert-list-row">
@@ -62,10 +57,6 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     )
 
 }
-<<<<<<< HEAD
-export default Advert;
-=======
 
 }
 export default Advert;
->>>>>>> dev
