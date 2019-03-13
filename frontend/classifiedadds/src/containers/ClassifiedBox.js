@@ -152,7 +152,7 @@ class ClassifiedBox extends Component {
                                     </Fragment>
                             }
                         />
-                        <Route
+                        {/* <Route
                             path="/"
                             render={() =>
                                 <Fragment>
@@ -163,7 +163,7 @@ class ClassifiedBox extends Component {
                                     )}
                                 </Fragment>
                             }
-                        />
+                        /> */}
                     </Switch>
                 </Fragment>
             </Router>

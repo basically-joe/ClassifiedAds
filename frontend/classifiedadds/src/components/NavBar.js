@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => (
   <ul>
-    <button>
+    {/* <button>
       <Link to="/">Home</Link>
-    </button>
+    </button> */}
     <button>
       <Link to="/createad">Create Ad</Link>
     </button>
