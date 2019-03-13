@@ -4,6 +4,7 @@ import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
 import UpdateForm from "../components/UpdateForm"
 import NavBar from "../components/NavBar"
+import Modal from "../components/Modal"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
@@ -15,7 +16,9 @@ class ClassifiedBox extends Component {
             advertsDB: [],
             advertsToShow: [],
             renderUpdateComponent: false,
-            advertToUpdate: {}
+            advertToUpdate: {},
+            triggerText: "Post new Ad"    
+
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this)
@@ -143,6 +146,7 @@ class ClassifiedBox extends Component {
                             path="/createad"
                             render={() =>
                                     <Fragment>
+                                    <Modal triggerText = {this.state.triggerText} />
                                     <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
                                     <Advert adverts={this.state.advertsDB}  advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
