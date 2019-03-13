@@ -6,9 +6,9 @@ const Navbar = () => (
     {/* <button>
       <Link to="/">Home</Link>
     </button> */}
-    <button>
+    {/* <button>
       <Link to="/createad">Create Ad</Link>
-    </button>
+    </button> */}
   </ul>
 );
 

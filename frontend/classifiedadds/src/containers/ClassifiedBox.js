@@ -140,7 +140,7 @@ class ClassifiedBox extends Component {
         return (
             <Router>
                 <Fragment>
-                    <NavBar />
+                    {/* <NavBar /> */}
                     <Switch>
                         <Route
                             path="/createad"
