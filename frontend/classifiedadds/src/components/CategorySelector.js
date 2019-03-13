@@ -1,18 +1,11 @@
 import React from 'react';
 
-<<<<<<< HEAD
-
-const CategorySelector = ({adverts, onCategorySelected}) => {
-    const options = adverts.map((advert, index)=> {
-        return <option value={advert.category} key={index}>{advert.category}</option>
-=======
 const CategorySelector = ({ adverts, onCategorySelected }) => {
 
     const newArrayOfValues = [];
 
     adverts.map((advert) => {
         return newArrayOfValues.push(advert.category)
->>>>>>> dev
     })
 
     let unique = [...new Set(newArrayOfValues)];

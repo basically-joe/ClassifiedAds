@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-
-import React, { Component} from 'react';
-=======
 import React, { Component, Fragment } from 'react';
->>>>>>> dev
 import Advert from '../components/Advert'
 import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
@@ -39,10 +34,6 @@ class ClassifiedBox extends Component {
 
             .then(res => res.json())
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 
         fetch(url2)
             .then(res => res.json())
@@ -52,11 +43,7 @@ class ClassifiedBox extends Component {
             })
     }
 
-<<<<<<< HEAD
-    handleAdSubmit(newAdvert){
-=======
     handleAdSubmit(newAdvert) {
->>>>>>> dev
 
         const dataToPost = JSON.stringify(newAdvert)
 
@@ -100,10 +87,10 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
-        const id = updatedAdvert.id;           
+        const id = updatedAdvert.id;
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
-    
+
         fetch(`http://localhost:8080/adverts/${id}`, {
             method: 'PUT',
             body: dataToUpdate,
@@ -126,35 +113,14 @@ class ClassifiedBox extends Component {
         this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
 
-<<<<<<< HEAD
-    handleAdvertSelect(categoryToFilterBy){
-        const selectedAdverts = this.state.adverts.filter(advert => advert.category === categoryToFilterBy);
-        console.log(selectedAdverts)
-        this.setState({advertsDB: selectedAdverts})
-=======
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         this.setState({advertsToShow: selectedAdverts})
->>>>>>> dev
     }
 
 
     render() {
         return (
-<<<<<<< HEAD
-
-
-             <div>
-                <AdForm onAdSubmit = {this.handleAdSubmit}/>
-                <CategorySelector adverts={this.state.advertsDB} onCategorySelected = {this.handleAdvertSelect}/>
-                <Advert adverts={this.state.advertsDB}  handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}/>
-                {this.state.renderUpdateComponent && (
-                     <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate = {this.handleAdUpdate}/>
-                )}
-
-            </div>
-
-=======
             <Router>
                 <Fragment>
                     <NavBar />
@@ -187,7 +153,6 @@ class ClassifiedBox extends Component {
                     </Switch>
                 </Fragment>
             </Router>
->>>>>>> dev
         )
     }
 }
