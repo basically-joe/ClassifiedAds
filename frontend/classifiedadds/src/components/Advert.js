@@ -1,9 +1,9 @@
 import React from 'react'
 import LikesCounter from "./LikesCounter"
+import Modal from "../components/Modal"
 
-const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins}) => {
+const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate}) => {
   
-   
   const getAdminById = (admins, id) => {
 console.log(admins)
         const foundAdmin = admins.find(admin => {

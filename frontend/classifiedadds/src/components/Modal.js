@@ -32,8 +32,6 @@ class Modal extends Component {
                 <ModalTrigger
                     onOpen={this.onOpen}
                     text={triggerText}
-                    onAdSubmit={this.props.onAdSubmit} 
-                    admins={this.props.admins}
                     
                 />
                 {isOpen &&

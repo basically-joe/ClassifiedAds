@@ -17,8 +17,8 @@ class ClassifiedBox extends Component {
             advertsToShow: [],
             renderUpdateComponent: false,
             advertToUpdate: {},
-            triggerText: "Post new Ad"    
-
+            triggerText: "Post new Ad",
+            triggerTextUpdate: "Update Ad"
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this)
@@ -149,7 +149,7 @@ class ClassifiedBox extends Component {
                                     <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
                                     <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB}  advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
+                                    <Advert adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}
@@ -162,7 +162,7 @@ class ClassifiedBox extends Component {
                                 <Fragment>
                                     <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}  admins={this.state.admins}/>
+                                    <Advert adverts={this.state.advertsDB} triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}  admins={this.state.admins}/>
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}
