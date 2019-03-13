@@ -89,13 +89,13 @@ render() {
                     onChange={this.handleTitleChange}
                 /><br/>
 
-                {/* <label>
+                <label>
                      <input 
                         type="text" 
                         placeholder="Admin username"
                         onChange={this.handleAdminChange.bind(this)}
                         value={this.state.admin.userName ? this.state.admin.userName : ""}/>
-                 </label> */}
+                 </label>
               
 
                 <div className="radio-buttons">
