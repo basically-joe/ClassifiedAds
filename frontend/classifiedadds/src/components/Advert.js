@@ -1,8 +1,14 @@
 import React from 'react'
 import LikesCounter from "./LikesCounter"
 
-const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete}) => {
+const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins}) => {
   
+    const getAdminById = (id) => {
+        const foundAdmin = this.state.admins.find(admin => admin.id === Number(id))
+        return foundAdmin.userName
+    }
+
+
 if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     const advertNodes = adverts.map((advert)  => {
     

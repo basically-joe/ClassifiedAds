@@ -11,6 +11,7 @@ class AdForm extends Component {
             description: "",
             title: "",
             admins: this.props.admins,
+            admin_id: "",
             adminRender: ""
         }
 
@@ -34,8 +35,7 @@ class AdForm extends Component {
     }
 
     getAdminById(id){
-        const foundAdmin = this.state.admins.find(admin => admin.id === id)
-        console.log(foundAdmin)
+        const foundAdmin = this.state.admins.find(admin => admin.id === Number(id))
         return foundAdmin.userName
     }
 
@@ -60,16 +60,16 @@ class AdForm extends Component {
     }
     
     handleAdminSelect(e){
-        const id = this.getAdminById(e.target.value)
-        this.setState({adminRender: id})
+        // const name = this.getAdminById(e.target.value)
+        this.setState({admin_id: e.target.value, adminRender: e.target.value})
     }
 
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image, adminRender: this.state.adminRender }
+        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image, admin_id: this.state.admin_id }
         this.props.onAdSubmit(newAd)
-        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "", adminRender: "" })
+        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "", admin_id: "" })
     }
 
 

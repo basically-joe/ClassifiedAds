@@ -48,6 +48,7 @@ class ClassifiedBox extends Component {
     }
 
     handleAdSubmit(newAdvert) {
+        console.log(newAdvert)
 
         const dataToPost = JSON.stringify(newAdvert)
 
@@ -142,7 +143,11 @@ class ClassifiedBox extends Component {
                                     <Fragment>
                                     <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                                    <Advert adverts={this.state.advertsDB} 
+                                    advertsToShow={this.state.advertsToShow} 
+                                    handleAdvertToUpdate={this.handleAdvertToUpdate} 
+                                    onAdDelete={this.handleAdDelete}
+                                    admins ={this.state.admins} />
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}
