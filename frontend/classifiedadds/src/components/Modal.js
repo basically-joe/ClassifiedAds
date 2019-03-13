@@ -24,8 +24,6 @@ class Modal extends Component {
     render() {
         const { isOpen } = this.state;
         const { triggerText } = this.props;
-        {console.log(this.props.admins)}
-        {console.log(this.props.onAdSubmit)}
 
         return (
             <Fragment>

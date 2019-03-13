@@ -1,6 +1,5 @@
 import React from 'react'
 import LikesCounter from "./LikesCounter"
-import Modal from "../components/Modal"
 
 const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate}) => {
   
