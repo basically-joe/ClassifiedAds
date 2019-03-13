@@ -6,7 +6,6 @@ const CategorySelector = ({adverts, onCategorySelected}) => {
     })
 
     function handleChange(event){
-       console.log(event.target.value)
         onCategorySelected(event.target.value)
     }
 
