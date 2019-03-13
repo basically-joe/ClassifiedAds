@@ -11,7 +11,7 @@ class UpdateForm extends Component{
             category: this.props.advert.category,
             description: this.props.advert.description,
             title: this.props.advert.title,
-            admin: this.props.advert.admin ? this.props.advert.admin.userName : "",
+            // admin: this.props.advert.admin ? this.props.advert.admin.userName : "",
             id: this.props.advert.id
         }
 
@@ -22,7 +22,7 @@ class UpdateForm extends Component{
         this.handleCategory1Change = this.handleCategory1Change.bind(this)  
         this.handleUpdate = this.handleUpdate.bind(this)
         this.handleImageChange = this.handleImageChange.bind(this)
-        this.handleAdminChange = this.handleAdminChange.bind(this)
+        // this.handleAdminChange = this.handleAdminChange.bind(this)
     }
 
 handleImageChange(e){
@@ -45,9 +45,9 @@ handleCategory1Change(e) {
     this.setState({ category: e.target.value })
 }
 
-handleAdminChange(e) {
-    this.setState({admin: e.target.value})
-}
+// handleAdminChange(e) {
+//     this.setState({admin: e.target.value})
+// }
 
 handleUpdate(e){
     e.preventDefault()
@@ -58,7 +58,6 @@ handleUpdate(e){
 
 render() {
 
-    console.log(this.props.advert.admin)
       
         return (
             <React.Fragment>
@@ -89,6 +88,16 @@ render() {
                     value={this.state.title}
                     onChange={this.handleTitleChange}
                 /><br/>
+
+                {/* <label>
+                     <input 
+                        type="text" 
+                        placeholder="Admin username"
+                        onChange={this.handleAdminChange.bind(this)}
+                        value={this.state.admin.userName ? this.state.admin.userName : ""}/>
+                 </label> */}
+              
+
                 <div className="radio-buttons">
                 <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
@@ -126,13 +135,7 @@ render() {
                     Furniture </label><br/>
                     </div>
 
-                    <label>
-                        <input type="text" onChange={this.handleAdminChange.bind(this)}
-                        value={this.state.advert.admin.userName ? this.state.advert.admin.userName : ""}/>
-                        </label>
-                    
-                    
-
+                   
                 <button onClick={this.handleUpdate} >Update</button>
 
             </form>
