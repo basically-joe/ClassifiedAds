@@ -3,6 +3,7 @@ import ClassifiedBox from "../src/containers/ClassifiedBox"
 import './App.css';
 import "./Adlist.css";
 import "./Form.css";
+import "./Normalize.css";
 
 class App extends Component {
   render() {

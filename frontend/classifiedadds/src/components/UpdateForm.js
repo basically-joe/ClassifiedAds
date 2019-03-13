@@ -54,7 +54,7 @@ render() {
         return (
             <React.Fragment>
             
-            <form >
+            <form className="content-update-form">
             <input
                 type="text"
                 placeholder="Enter a URL"

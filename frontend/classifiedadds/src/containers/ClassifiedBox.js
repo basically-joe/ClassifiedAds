@@ -6,6 +6,7 @@ import UpdateForm from "../components/UpdateForm"
 import NavBar from "../components/NavBar"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
 class ClassifiedBox extends Component {
     constructor(props) {
         super(props);
