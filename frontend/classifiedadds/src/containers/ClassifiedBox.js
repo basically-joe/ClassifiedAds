@@ -140,14 +140,14 @@ class ClassifiedBox extends Component {
         return (
             <Router>
                 <Fragment>
-                    {/* <NavBar /> */}
-                    {/* <Switch> */}
+                    <NavBar />
+                    <Switch>
                         <Route
                             path="/createad"
                             render={() =>
                                     <Fragment>
                                     <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
-                                    {/* <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} /> */}
+                                    <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
                                     <Advert adverts={this.state.advertsDB}  advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
                                     {this.state.renderUpdateComponent && (
@@ -156,7 +156,7 @@ class ClassifiedBox extends Component {
                                     </Fragment>
                             }
                         />
-                        {/* <Route
+                        <Route
                             path="/"
                             render={() =>
                                 <Fragment>
@@ -167,8 +167,8 @@ class ClassifiedBox extends Component {
                                     )}
                                 </Fragment>
                             }
-                        /> */}
-                    {/* </Switch> */}
+                        />
+                    </Switch>
                 </Fragment>
             </Router>
         )}
