@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Advert from '../components/Advert'
 import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
 import UpdateForm from "../components/UpdateForm"
-import NavBar from "../components/NavBar"
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+
 
 class ClassifiedBox extends Component {
     constructor(props) {
@@ -69,7 +69,7 @@ class ClassifiedBox extends Component {
     handleAdDelete(itemId) {
 
         const indexToDelete = this.updateAdvertsArray(itemId);
-        console.log(indexToDelete)
+    
         let newAdverts = [...this.state.advertsDB]
 
         newAdverts.splice(indexToDelete, 1)
@@ -106,6 +106,7 @@ class ClassifiedBox extends Component {
         newAdverts.push(updatedAdvert)
 
         this.setState({advertsDB: newAdverts})
+        this.setState({renderUpdateComponent: false})
     }
 
     handleAdvertToUpdate(advert){
@@ -117,43 +118,21 @@ class ClassifiedBox extends Component {
         this.setState({advertsToShow: selectedAdverts})
     }
 
-
     render() {
         return (
-            <Router>
-                <Fragment>
-                    <NavBar />
-                    <Switch>
-                        <Route
-                            path="/createad"
-                            render={() =>
-                                    <Fragment>
-                                    <AdForm onAdSubmit={this.handleAdSubmit} />
-                                    <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
-                                    {this.state.renderUpdateComponent && (
-                                        <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
-                                    )}
-                                    </Fragment>
-                            }
-                        />
-                        <Route
-                            path="/"
-                            render={() =>
-                                <Fragment>
-                                    <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
-                                    {this.state.renderUpdateComponent && (
-                                        <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
-                                    )}
-                                </Fragment>
-                            }
-                        />
-                    </Switch>
-                </Fragment>
-            </Router>
+             <div>
+                <AdForm onAdSubmit = {this.handleAdSubmit}/>
+                <CategorySelector adverts={this.state.advertsDB} onCategorySelected = {this.handleAdvertSelect}/>
+                <Advert adverts={this.state.advertsDB} advertsToShow = {this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}/>
+                {this.state.renderUpdateComponent && (
+                     <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate = {this.handleAdUpdate}/>
+                )}
+                
+            </div>
         )
     }
+
+
 }
 
 export default ClassifiedBox;
