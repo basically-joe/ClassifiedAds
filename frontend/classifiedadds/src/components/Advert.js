@@ -2,18 +2,15 @@ import React from 'react'
 import LikesCounter from "./LikesCounter"
 
 const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins}) => {
-  console.log(admins)
+  
    
   const getAdminById = (admins, id) => {
-    console.log(admins)
-    console.log(id)
 
         const foundAdmin = admins.find(admin => {
-            console.log(admin.id)
+          
             return admin.id === Number(id)
         })
-        console.log(foundAdmin)
-        if (foundAdmin) {
+           if (foundAdmin) {
             return foundAdmin.userName
         } else {
             return null;

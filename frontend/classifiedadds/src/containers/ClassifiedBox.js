@@ -94,7 +94,9 @@ class ClassifiedBox extends Component {
 
     handleAdUpdate(updatedAdvert){
         
-        const id = updatedAdvert.id;           
+        const id = updatedAdvert.id;
+
+        console.log(id)          
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
     
