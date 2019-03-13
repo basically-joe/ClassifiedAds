@@ -5,12 +5,14 @@ class AdForm extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            image: "",
             askingPrice: "",
             category: "",
             description: "",
             title: "",
         }
 
+        this.handleImageChange = this.handleImageChange.bind(this)
         this.handleaskingPriceChange = this.handleaskingPriceChange.bind(this)
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
@@ -18,6 +20,10 @@ class AdForm extends Component {
 
         this.handleSubmit = this.handleSubmit.bind(this)
 
+    }
+
+    handleImageChange(e){
+        this.setState({image: e.target.value})
     }
 
     handleaskingPriceChange(e) {
@@ -39,9 +45,9 @@ class AdForm extends Component {
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title }
+        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image }
         this.props.onAdSubmit(newAd)
-        this.setState({ askingPrice: "", category: "", description: "", title: "" })
+        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "" })
     }
 
 
@@ -53,6 +59,15 @@ class AdForm extends Component {
                 className="ad-form"
                 onSubmit={this.handleSubmit}
             >
+
+            <input
+                type="text"
+                placeholder="Enter a URL"
+                value = {this.state.image}
+                onChange={this.handleImageChange}
+            />
+           
+           <br></br>
 
                 <input
                     type="number"

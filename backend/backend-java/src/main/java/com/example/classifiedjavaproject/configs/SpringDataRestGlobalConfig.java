@@ -1,5 +1,7 @@
 package com.example.classifiedjavaproject.configs;
 
+import com.example.classifiedjavaproject.models.Admin;
+import com.example.classifiedjavaproject.models.Advert;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurerAdapter;
@@ -19,5 +21,7 @@ public class SpringDataRestGlobalConfig extends RepositoryRestConfigurerAdapter 
                 .allowedOrigins(ALLOWED_ORIGINS)
                 .allowedHeaders(ALLOWED_HEADERS)
                 .allowedMethods(ALLOWED_METHODS);
+
+        config.exposeIdsFor(Admin.class, Advert.class);
     }
 }

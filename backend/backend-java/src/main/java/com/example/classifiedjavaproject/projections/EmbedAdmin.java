@@ -10,6 +10,7 @@ public interface EmbedAdmin {
     String getuserName();
     String getClientName();
     List<Advert> getAdverts();
+    Long getId();
 
 
 

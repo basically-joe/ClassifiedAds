@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => (
+<<<<<<< HEAD
 
   <ul>
     <button>
@@ -18,3 +19,16 @@ const Navbar = () => (
 );
 
 export default Navbar;
+=======
+  <ul>
+    <button>
+      <Link to="/">Home</Link>
+    </button>
+    <button>
+      <Link to="/createad">Create Ad</Link>
+    </button>
+  </ul>
+);
+
+export default Navbar;
+>>>>>>> dev
