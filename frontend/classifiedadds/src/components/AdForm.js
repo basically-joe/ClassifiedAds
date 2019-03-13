@@ -3,6 +3,8 @@ import React, { Component } from "react"
 class AdForm extends Component {
 
     constructor(props) {
+        // pass in admin through props
+    
         super(props)
         this.state = {
             image: "",
@@ -10,6 +12,7 @@ class AdForm extends Component {
             category: "",
             description: "",
             title: "",
+            admins: []
         }
 
         this.handleImageChange = this.handleImageChange.bind(this)
@@ -87,6 +90,8 @@ class AdForm extends Component {
                     value={this.state.title}
                     onChange={this.handleTitleChange}
                 /><br/>
+
+
                 <div className="radio-buttons">
                 <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
@@ -113,7 +118,7 @@ class AdForm extends Component {
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
                         checked={this.state.category === "Tech"}
                         value="Tech"
-                        name="radio4" />
+                        name="radio4" /> 
                     Tech </label><br/>
 
                     <label>
@@ -123,6 +128,11 @@ class AdForm extends Component {
                         name="radio5" />
                     Furniture </label><br/>
                     </div>
+
+                {/* <label>
+                    <options 
+                </label> */}
+
 
                 <input
                     type="submit"
