@@ -3,8 +3,9 @@ import LikesCounter from "./LikesCounter"
 
 const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins}) => {
   
-    const getAdminById = (id) => {
-        const foundAdmin = this.state.admins.find(admin => admin.id === Number(id))
+    const getAdminById = (admins, id) => {
+        console.log(admins)
+        const foundAdmin = admins.find(admin => admin.id === Number(id))
         return foundAdmin.userName
     }
 
@@ -19,7 +20,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.category}</p>
             <p>{advert.askingPrice}</p>
             <p>{advert.description}</p>
-            <p>{advert.admin ? advert.admin.userName : ""}</p>
+            <p>{advert.adminRender ? getAdminById(admins,advert.adminRender) : ""}</p>
             <LikesCounter/>
             <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>

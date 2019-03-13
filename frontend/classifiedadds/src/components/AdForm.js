@@ -60,16 +60,24 @@ class AdForm extends Component {
     }
     
     handleAdminSelect(e){
-        // const name = this.getAdminById(e.target.value)
         this.setState({admin_id: e.target.value, adminRender: e.target.value})
     }
 
     handleSubmit(e) {
         e.preventDefault();
 
-        const newAd = { askingPrice: this.state.askingPrice, category: this.state.category, description: this.state.description, title: this.state.title, image: this.state.image, admin_id: this.state.admin_id }
+        const newAd = { 
+            askingPrice: this.state.askingPrice,
+            category: this.state.category,
+            description: this.state.description,
+            title: this.state.title,
+            image: this.state.image,
+            admin_id: this.state.admin_id,
+            adminRender: this.state.adminRender 
+        }
+
         this.props.onAdSubmit(newAd)
-        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "", admin_id: "" })
+        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "", admin_id: "", adminRender: "" })
     }
 
 
