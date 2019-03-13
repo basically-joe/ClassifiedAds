@@ -5,7 +5,7 @@ const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admin
   
    
   const getAdminById = (admins, id) => {
-
+console.log(admins)
         const foundAdmin = admins.find(admin => {
           
             return admin.id === Number(id)

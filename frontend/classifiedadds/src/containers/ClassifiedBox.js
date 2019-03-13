@@ -158,7 +158,7 @@ class ClassifiedBox extends Component {
                             render={() =>
                                 <Fragment>
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}  admins={this.state.admins}/>
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}
