@@ -6,23 +6,30 @@
     align-items: center;
     justify-content: center;
     background-color: #DCDCDC
-
-
   }
 
   .individual-ad-box-column{
-
     display: flex;
     flex-direction: column;
     flex-basis: 100%;
     flex: 50%;
     border: 2px solid #BE975B;
     border-style: solid;
-    max-width: 800px;
-    max-height: 200px;
+    /* max-width: 500px; */
+    max-width: 400px;
+    /* max-height: 200px; */
     margin: 4px;
     padding: 4px;
     text-align: left;
     border-radius: 3px;
     background-color: #F5F5F5;
   }
+img{
+      max-width: 300px;
+      height:250px;
+      border: 2px solid #BE975B;
+      border-style: solid;
+      display: block;
+      margin-left: auto;
+      margin-right: auto
+}
