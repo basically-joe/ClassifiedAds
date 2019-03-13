@@ -6,6 +6,8 @@ import UpdateForm from "../components/UpdateForm"
 import NavBar from "../components/NavBar"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+
+
 class ClassifiedBox extends Component {
     constructor(props) {
         super(props);
@@ -69,7 +71,7 @@ class ClassifiedBox extends Component {
     handleAdDelete(itemId) {
 
         const indexToDelete = this.updateAdvertsArray(itemId);
-        console.log(indexToDelete)
+    
         let newAdverts = [...this.state.advertsDB]
 
         newAdverts.splice(indexToDelete, 1)
@@ -86,6 +88,7 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
+        
         const id = updatedAdvert.id;           
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
@@ -117,7 +120,6 @@ class ClassifiedBox extends Component {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         this.setState({advertsToShow: selectedAdverts})
     }
-
 
     render() {
         return (
@@ -155,6 +157,8 @@ class ClassifiedBox extends Component {
             </Router>
         )
     }
+
+
 }
 
 export default ClassifiedBox;
