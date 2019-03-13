@@ -19,30 +19,24 @@ class AdForm extends Component {
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this)
         this.handleTitleChange = this.handleTitleChange.bind(this)
         this.handleCategory1Change = this.handleCategory1Change.bind(this)
-        this.getAdminById = this.getAdminById.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.returnAdminNameById = this.returnAdminNameById.bind(this)
+        this.handleAdminSelect = this.handleAdminSelect.bind(this)
+        this.returnOptions = this.returnOptions.bind(this)
+        this.getAdminById = this.getAdminById.bind(this)
+       
 
     }
 
-  
-
-    getAdminById(userName){
-        let id 
-        for (const admin of this.state.admins){
-            if (admin.userName === userName)
-            id = admin.id;
-        }
-        return id;
+    returnOptions(){
+        return this.state.admins.map(admin => {
+            return <option key = {admin.id} value = {admin.id}>{admin.userName}</option>
+        })
     }
 
-    returnAdminNameById(id){
-        let name
-        for (const admin of this.state.admins){
-            if (admin.id === id)
-            name = admin.userName
-        }
-        return name
+    getAdminById(id){
+        const foundAdmin = this.state.admins.find(admin => admin.id === id)
+        console.log(foundAdmin)
+        return foundAdmin.userName
     }
 
     handleImageChange(e){
@@ -65,9 +59,9 @@ class AdForm extends Component {
         this.setState({ category: e.target.value })
     }
     
-    handlAdminSelect(e){
-        const name = this.returnAdminNameById(e.target.value)
-        this.setState({adminRender: name})
+    handleAdminSelect(e){
+        const id = this.getAdminById(e.target.value)
+        this.setState({adminRender: id})
     }
 
     handleSubmit(e) {
@@ -119,9 +113,7 @@ class AdForm extends Component {
 
             <select onChange={this.handleAdminSelect}>
                 <option>Choose An Admin</option>
-                <option value={this.getAdminById('raul_2000')}>raul_2000</option>
-                <option value={this.getAdminById('gilroy_ms')}>gilroy_ms</option>
-                <option value={this.getAdminById("tony_piano_fingers")}>tony_piano_fingers</option>
+                {this.returnOptions()}
             </select>
 
 
