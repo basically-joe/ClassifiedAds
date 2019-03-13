@@ -106,6 +106,7 @@ class ClassifiedBox extends Component {
         newAdverts.push(updatedAdvert)
 
         this.setState({advertsDB: newAdverts})
+        this.setState({renderUpdateComponent: false})
     }
 
     handleAdvertToUpdate(advert){

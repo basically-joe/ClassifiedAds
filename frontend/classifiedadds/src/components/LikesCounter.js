@@ -6,7 +6,7 @@ const LikesCounter = () => {
       <div>
         <p>Likes: {count}</p>
         <button onClick={() => updateCount(count + 1)}>Like </button>
-        <button onClick={() => {if (count >0) {updateCount(count - 1)}}}>Dislike </button>
+        {/* <button onClick={() => {if (count >0) {updateCount(count - 1)}}}>Dislike </button> */}
 
       </div>
     )
