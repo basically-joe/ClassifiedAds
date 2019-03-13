@@ -160,6 +160,7 @@ class ClassifiedBox extends Component {
                             path="/"
                             render={() =>
                                 <Fragment>
+                                    <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
                                     <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}  admins={this.state.admins}/>
                                     {this.state.renderUpdateComponent && (
