@@ -23,21 +23,10 @@ class AdForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.handleAdminSelect = this.handleAdminSelect.bind(this)
         this.returnOptions = this.returnOptions.bind(this)
-        this.getAdminById = this.getAdminById.bind(this)
-       
-
+         
     }
 
-    returnOptions(){
-        return this.state.admins.map(admin => {
-            return <option key = {admin.id} value = {admin.id}>{admin.userName}</option>
-        })
-    }
 
-    getAdminById(id){
-        const foundAdmin = this.state.admins.find(admin => admin.id === Number(id))
-        return foundAdmin.userName
-    }
 
     handleImageChange(e){
         this.setState({image: e.target.value})
@@ -59,9 +48,18 @@ class AdForm extends Component {
         this.setState({ category: e.target.value })
     }
     
+    // Sneaky bit - adminRender  //
     handleAdminSelect(e){
         this.setState({admin_id: e.target.value, adminRender: e.target.value})
     }
+
+    // Populates select //
+    returnOptions(){
+        return this.state.admins.map(admin => {
+            return <option key = {admin.id} value = {admin.id}>{admin.userName}</option>
+        })
+    }
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -77,7 +75,13 @@ class AdForm extends Component {
         }
 
         this.props.onAdSubmit(newAd)
-        this.setState({ image: "", askingPrice: "", category: "", description: "", title: "", admin_id: "", adminRender: "" })
+        this.setState({ image: "",
+             askingPrice: "", 
+             category: "", 
+             description: "",
+             title: "",
+             admin_id: "",
+             adminRender: "" })
     }
 
 
@@ -106,12 +110,14 @@ class AdForm extends Component {
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
                 /><br/>
+
                 <input
                     type="text"
                     placeholder="Description..."
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
                 /><br/>
+
                 <input
                     type="text"
                     placeholder="Title..."
@@ -119,15 +125,13 @@ class AdForm extends Component {
                     onChange={this.handleTitleChange}
                 /><br/>
 
-            <select onChange={this.handleAdminSelect}>
-                <option>Choose An Admin</option>
-                {this.returnOptions()}
-            </select>
+                <select onChange={this.handleAdminSelect}>
+                  <option>Choose An Admin</option>
+                      {this.returnOptions()}
+                </select>
 
 
-
-
-                <div className="radio-buttons">
+             <div className="radio-buttons">
                 <label>
                     <input type="radio" onChange={this.handleCategory1Change.bind(this)}
                         checked={this.state.category === "Beauty"}
