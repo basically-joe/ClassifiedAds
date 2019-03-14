@@ -37,7 +37,12 @@ class UpdateModal extends Component {
                     onClose={this.onClose}
                     onAdSubmit={this.props.onAdSubmit} 
                     admins={this.props.admins}
-                    
+
+
+                    adverts={this.props.adverts}  
+                    advertsToShow={this.props.advertsToShow} 
+                    handleAdvertToUpdate={this.props.handleAdvertToUpdate}
+                    onAdDelete={this.props.handleAdDelete} 
 
                   />
                 }
