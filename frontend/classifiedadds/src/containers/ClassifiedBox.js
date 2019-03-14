@@ -123,7 +123,7 @@ class ClassifiedBox extends Component {
     }
 
     handleAdvertToUpdate(advert){
-        this.setState({advertToUpdate: advert, renderUpdateComponent: true})
+        this.setState({advertToUpdate: advert, renderUpdateComponent: false})
     }
 
 
@@ -150,7 +150,7 @@ class ClassifiedBox extends Component {
                                     <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
                                     <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert advertToUpdate={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} triggerTextUpdate = {this.state.triggerTextUpdate} adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
+                                    <Advert advertToUpdate={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}

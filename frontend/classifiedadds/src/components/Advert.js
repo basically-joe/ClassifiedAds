@@ -30,12 +30,14 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>Description: {advert.description}</p>
             <p>Posted By: {advert.adminRender ? getAdminById(admins, advert.adminRender) : ""}</p>
             <LikesCounter/>
-            <UpdateModal onClick = {()=> {handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate}  triggerTextUpdate = {triggerTextUpdate} />
-            <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
+            <button onClick = {()=> {handleAdvertToUpdate(advert)}}>Get ready to update</button>
+            <UpdateModal  onClick = {()=> {handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate}  triggerTextUpdate = {triggerTextUpdate} />
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             </div>
         )
     })
+
+    // onClick = {()=> {handleAdvertToUpdate(advert) }}
 
     return(
         <div className="advert-list-row">
@@ -56,9 +58,9 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
             <LikesCounter/>
+            <button onClick = {()=> {handleAdvertToUpdate(advert)}}>Get ready to update</button>
             <UpdateModal onClick = {()=> {handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate}  triggerTextUpdate = {triggerTextUpdate} />
-            <button onClick = {()=> {handleAdvertToUpdate(advert)
-            }}>Update</button>
+            <button onClick = {()=> {handleAdvertToUpdate(advert)}}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             </div>
         )

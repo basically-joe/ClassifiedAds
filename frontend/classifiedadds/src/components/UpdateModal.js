@@ -32,6 +32,7 @@ class UpdateModal extends Component {
                     text={triggerTextUpdate}
                     advertToUpdate={this.props.advertToUpdate} 
                     handleAdUpdate = {this.handleAdUpdate}
+                    handleAdvertToUpdate = {this.handleAdvertToUpdate}
                 />
                 {isOpen &&
                     <UpdateModalContent
@@ -40,6 +41,8 @@ class UpdateModal extends Component {
 
                     advertToUpdate={this.props.advertToUpdate} 
                     handleAdUpdate={this.props.handleAdUpdate}
+                    handleAdvertToUpdate = {this.handleAdvertToUpdate}
+
                   />
                 }
 
