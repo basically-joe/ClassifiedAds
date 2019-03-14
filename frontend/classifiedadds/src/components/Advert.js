@@ -30,6 +30,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>Description: {advert.description}</p>
             <p>Posted By: {advert.adminRender ? getAdminById(admins, advert.adminRender) : ""}</p>
             <LikesCounter/>
+            <UpdateModal adverts={adverts}  triggerTextUpdate = {triggerTextUpdate} advertsToShow={advertsToShow} handleAdvertToUpdate={handleAdvertToUpdate}  onAdDelete={handleAdDelete} admins ={admins} />
             <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             </div> 
@@ -39,9 +40,6 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     return(
         <div className="advert-list-row">
             {advertNodes}
-            {console.log(adverts)}
-            <UpdateModal adverts={adverts}  triggerTextUpdate = {triggerTextUpdate} advertsToShow={advertsToShow} handleAdvertToUpdate={handleAdvertToUpdate}  onAdDelete={handleAdDelete} admins ={admins} />
-
         </div>
     )
 
@@ -58,6 +56,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
             <LikesCounter/>
+            <UpdateModal adverts={adverts}  triggerTextUpdate = {triggerTextUpdate} advertsToShow={advertsToShow} handleAdvertToUpdate={handleAdvertToUpdate}  onAdDelete={handleAdDelete} admins ={admins} />
             <button onClick = {()=> {handleAdvertToUpdate(advert)
                 console.log("HI")
             }}>Update</button>
