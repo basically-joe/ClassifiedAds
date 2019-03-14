@@ -61,12 +61,12 @@ render() {
             <React.Fragment>
             
             <form >
-            <input
-                type="text"
-                placeholder="Enter a URL"
-                value = {this.state.image}
-                onChange={this.handleImageChange}
-            />
+                <input
+                    type="text"
+                    placeholder="Enter a URL"
+                    value = {this.state.image}
+                    onChange={this.handleImageChange}
+                />
 
                 <input
                     type="number"

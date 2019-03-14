@@ -79,12 +79,12 @@ class AdForm extends Component {
                     onChange={this.handleaskingPriceChange}
                 /><br/>
 
-                <input
+                {/* <input
                     type="number"
                     placeholder="Likes stuff"
                     value={this.state.likes_counter}
                     readOnly
-                /><br/>
+                /><br/> */}
                 <input
                     type="text"
                     placeholder="Description..."
