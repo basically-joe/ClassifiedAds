@@ -15,9 +15,7 @@
     flex: 50%;
     border: 2px solid #BE975B;
     border-style: solid;
-    /* max-width: 500px; */
-    max-width: 400px;
-    /* max-height: 200px; */
+    max-width: 500px;
     margin: 4px;
     padding: 4px;
     text-align: center;
