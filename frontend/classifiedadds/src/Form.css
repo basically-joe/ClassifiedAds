@@ -17,7 +17,6 @@ font-weight: 800;
 }
 
 .radio-buttons{
-<<<<<<< HEAD
 margin:15px;
 border: 2px solid #BE975B;
 border-style: solid grey;
@@ -27,19 +26,3 @@ align-items: center;
 justify-content: center;
 
 }
-=======
-margin:4px;
-border: 1px;
-border-style: solid;
-border-radius: 10px;
-}
-
-.form-selector {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
-    justify-content: center;    
-}
->>>>>>> dev

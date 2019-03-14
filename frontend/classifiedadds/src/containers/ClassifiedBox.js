@@ -52,7 +52,7 @@ class ClassifiedBox extends Component {
 
     handleAdSubmit(newAdvert) {
 
-     
+
         const dataToPost = JSON.stringify(newAdvert)
 
         fetch("http://localhost:8080/adverts", {
@@ -79,7 +79,7 @@ class ClassifiedBox extends Component {
 
 
         const indexToDelete = this.updateAdvertsArray(itemId);
-    
+
         let newAdverts = [...this.state.advertsDB]
 
         newAdverts.splice(indexToDelete, 1)
@@ -96,14 +96,10 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
-<<<<<<< HEAD
-        const id = updatedAdvert.id;
-=======
-        
+
         const id = updatedAdvert.id;
 
-        console.log(id)          
->>>>>>> dev
+        console.log(id)
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
 
@@ -130,17 +126,17 @@ class ClassifiedBox extends Component {
         this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
 
-    
+
 
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         this.setState({advertsToShow: selectedAdverts})
     }
 
-  
+
 
     render() {
-       
+
         if (this.state.admins.length && this.state.advertsDB){
         return (
             <Router>
@@ -183,11 +179,8 @@ class ClassifiedBox extends Component {
     }
 }
 
-<<<<<<< HEAD
-export default ClassifiedBox;
-=======
+
 
 }
 
 export default ClassifiedBox;
->>>>>>> dev
