@@ -45,7 +45,7 @@ handleCategory1Change(e) {
 handleUpdate(e){
     e.preventDefault()
     this.props.handleAdUpdate(this.state)
-    this.setState({askingPrice: this.state.askingPrice})
+
 }
 
 
@@ -54,7 +54,7 @@ render() {
         return (
             <React.Fragment>
             
-            <form >
+            <form className="content-update-form">
             <input
                 type="text"
                 placeholder="Enter a URL"
@@ -118,6 +118,7 @@ render() {
                     </div>
 
                 <button onClick={this.handleUpdate} >Update</button>
+
 
             </form>
             </React.Fragment>

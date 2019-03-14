@@ -35,9 +35,7 @@ public class AdvertController {
     }
 
     @PostMapping("/")
-    public Advert postAdvert(@RequestBody Advert advert, @RequestBody Admin admin){
-        adminRepository.save(admin);
-        advert.setAdmin(admin);
+    public Advert postAdvert(@RequestBody Advert advert){
         advertRepository.save(advert);
         Long advertId = advert.getId();
         Advert newAdvert = getAdvertById(advertId);

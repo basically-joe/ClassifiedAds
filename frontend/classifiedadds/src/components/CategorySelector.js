@@ -19,7 +19,7 @@ const CategorySelector = ({ adverts, onCategorySelected }) => {
     }
 
     return (
-        <form>
+        <form className="form-selector">
             <select id="category-selector" onChange={handleChange} defaultValue="default">
                 <option value="default">Category filter / View all</option>
                 {options}

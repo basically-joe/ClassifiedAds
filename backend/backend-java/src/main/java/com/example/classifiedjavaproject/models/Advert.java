@@ -27,19 +27,23 @@ public class Advert {
     @Column(name="image")
     private String image;
 
+    @Column(name="admin_render")
+    private String adminRender;
 
     @ManyToOne
     @JoinColumn(name="admin_id", nullable = true)
     private Admin admin;
 
-    public Advert(String image, String category, String description, String title, double askingPrice, Admin admin ){
+    public Advert(String image, String category, String description, String title, double askingPrice, Admin admin, String adminRender ){
 
         this.category = category;
         this.description = description;
         this.title = title;
         this.askingPrice = askingPrice;
-        this.admin = admin;
         this.image = image;
+        this.adminRender = adminRender;
+        this.admin = admin;
+
     }
 
     public Advert(){
@@ -94,6 +98,14 @@ public class Advert {
         this.askingPrice = askingPrice;
     }
 
+    public String getAdminRender() {
+        return adminRender;
+    }
+
+    public void setAdminRender(String adminRender) {
+        this.adminRender = adminRender;
+    }
+
     public Admin getAdmin() {
         return admin;
     }
@@ -101,7 +113,4 @@ public class Advert {
     public void setAdmin(Admin admin) {
         this.admin = admin;
     }
-
-
-
 }
