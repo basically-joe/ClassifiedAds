@@ -31,3 +31,15 @@
     transform: rotate(360deg);
   }
 }
+
+.add-box{
+  display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.form-selector{
+display: flex;
+flex-direction: column;
+align-items: center;
+}
