@@ -23,15 +23,15 @@
     text-align: center;
     border-radius: 3px;
     background-color: #F5F5F5;
-    line-height: 0.1;
+    line-height: 0.01;
     font-family:sans-serif;
     font-weight: 800;
     color: #484848;
   }
 
 img{
-      max-width: 230px;
-      height:200px;
+      max-width: 220px;
+      height:150px;
       border: 2px solid #BE975B;
       border-style: solid;
       display: block;
