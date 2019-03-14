@@ -19,7 +19,7 @@ class UpdateModal extends Component {
 
     onClose = () => {
         this.setState({ isOpen: false });
-      };
+    };
 
     render() {
         const { isOpen } = this.state;
@@ -30,26 +30,25 @@ class UpdateModal extends Component {
                 <UpdateModalTrigger
                     onOpen={this.onOpen}
                     text={triggerTextUpdate}
-                    advertToUpdate={this.props.advertToUpdate} 
-                    handleAdUpdate = {this.handleAdUpdate}
-                    handleAdvertToUpdate = {this.handleAdvertToUpdate}
+                    advertToUpdate={this.props.advertToUpdate}
+                    handleAdUpdate={this.handleAdUpdate}
+                    handleAdvertToUpdate={this.handleAdvertToUpdate}
                 />
                 {isOpen &&
                     <UpdateModalContent
-                    onClose={this.onClose}
-                    admins={this.props.admins}
+                        onClose={this.onClose}
+                        admins={this.props.admins}
+                        advertToUpdate={this.props.advertToUpdate}
+                        handleAdUpdate={this.props.handleAdUpdate}
+                        handleAdvertToUpdate={this.handleAdvertToUpdate}
 
-                    advertToUpdate={this.props.advertToUpdate} 
-                    handleAdUpdate={this.props.handleAdUpdate}
-                    handleAdvertToUpdate = {this.handleAdvertToUpdate}
-
-                  />
+                    />
                 }
 
 
             </Fragment>
 
-            
+
         );
     }
 }

@@ -38,7 +38,7 @@ class ClassifiedBox extends Component {
 
             .then(res => res.json())
             .then(data => {
-                this.setState({admins: data._embedded.admins})
+                this.setState({ admins: data._embedded.admins })
             })
 
 
@@ -95,7 +95,7 @@ class ClassifiedBox extends Component {
 
     }
 
-    handleAdUpdate(updatedAdvert){
+    handleAdUpdate(updatedAdvert) {
 
         const id = updatedAdvert.id;
 
@@ -118,66 +118,67 @@ class ClassifiedBox extends Component {
         newAdverts.splice(indexToDelete, 1)
         newAdverts.push(updatedAdvert)
 
-        this.setState({advertsDB: newAdverts})
-        this.setState({renderUpdateComponent: false})
+        this.setState({ advertsDB: newAdverts })
+        this.setState({ renderUpdateComponent: false })
     }
 
-    handleAdvertToUpdate(advert){
-        this.setState({advertToUpdate: advert, renderUpdateComponent: false})
+    handleAdvertToUpdate(advert) {
+        this.setState({ advertToUpdate: advert, renderUpdateComponent: false })
     }
 
 
 
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
-        this.setState({advertsToShow: selectedAdverts})
+        this.setState({ advertsToShow: selectedAdverts })
     }
 
 
 
     render() {
 
-        if (this.state.admins.length && this.state.advertsDB){
-        return (
-            <Router>
-                <Fragment>
-                    <NavBar />
-                    <Switch>
-                        <Route
-                            path="/createad"
-                            render={() =>
+        if (this.state.admins.length && this.state.advertsDB) {
+            return (
+                <Router>
+                    <Fragment>
+                        <NavBar />
+                        <Switch>
+                            <Route
+                                path="/createad"
+                                render={() =>
                                     <Fragment>
-                                    <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
-                                    <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
-                                    <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert advertToUpdate={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
-                                    {this.state.renderUpdateComponent && (
-                                        <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
-                                    )}
+                                        <Modal triggerText={this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
+                                        <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
+                                        <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
+                                        <Advert advertToUpdate={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} adverts={this.state.advertsDB} triggerTextUpdate={this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} admins={this.state.admins} />
+                                        {this.state.renderUpdateComponent && (
+                                            <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
+                                        )}
                                     </Fragment>
-                            }
-                        />
-                        <Route
-                            path="/"
-                            render={() =>
-                                <Fragment>
-                                    <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
-                                    <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert advertToUpdate={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} triggerTextUpdate = {this.state.triggerTextUpdate} adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
-                                    {this.state.renderUpdateComponent && (
-                                        <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
-                                    )}
-                                </Fragment>
-                            }
-                        />
-                    </Switch>
-                </Fragment>
-            </Router>
-        )}
-        else{
+                                }
+                            />
+                            <Route
+                                path="/"
+                                render={() =>
+                                    <Fragment>
+                                        <Modal triggerText={this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
+                                        <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
+                                        <Advert advertToUpdate={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} triggerTextUpdate={this.state.triggerTextUpdate} adverts={this.state.advertsDB} triggerTextUpdate={this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} admins={this.state.admins} />
+                                        {this.state.renderUpdateComponent && (
+                                            <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
+                                        )}
+                                    </Fragment>
+                                }
+                            />
+                        </Switch>
+                    </Fragment>
+                </Router>
+            )
+        }
+        else {
             return <div>"BE PATIENT, I AM LOADING"</div>
+        }
     }
-}
 
 
 
