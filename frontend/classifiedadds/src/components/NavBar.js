@@ -1,14 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Navbar = () => (
   <ul>
-    <button>
+    {/* <button>
       <Link to="/">Home</Link>
     </button>
     <button>
       <Link to="/createad">Create Ad</Link>
-    </button>
+    </button> */}
   </ul>
 );
 

@@ -4,7 +4,9 @@ import AdForm from "../components/AdForm"
 import CategorySelector from "../components/CategorySelector"
 import UpdateForm from "../components/UpdateForm"
 import NavBar from "../components/NavBar"
+import Modal from "../components/Modal"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 class ClassifiedBox extends Component {
     constructor(props) {
@@ -15,6 +17,8 @@ class ClassifiedBox extends Component {
             advertsToShow: [],
             renderUpdateComponent: false,
             advertToUpdate: {},
+            triggerText: "Post new Ad",
+            triggerTextUpdate: "Update Ad"
         }
 
         this.handleAdSubmit = this.handleAdSubmit.bind(this)
@@ -32,6 +36,9 @@ class ClassifiedBox extends Component {
 
         fetch(url)
             .then(res => res.json())
+            .then(data => {
+                this.setState({admins: data._embedded.admins})
+            })
 
 
         fetch(url2)
@@ -44,6 +51,7 @@ class ClassifiedBox extends Component {
 
     handleAdSubmit(newAdvert) {
 
+     
         const dataToPost = JSON.stringify(newAdvert)
 
         fetch("http://localhost:8080/adverts", {
@@ -68,8 +76,9 @@ class ClassifiedBox extends Component {
 
     handleAdDelete(itemId) {
 
+
         const indexToDelete = this.updateAdvertsArray(itemId);
-        console.log(indexToDelete)
+    
         let newAdverts = [...this.state.advertsDB]
 
         newAdverts.splice(indexToDelete, 1)
@@ -86,7 +95,10 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
-        const id = updatedAdvert.id;           
+        
+        const id = updatedAdvert.id;
+
+        console.log(id)          
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
     
@@ -113,15 +125,18 @@ class ClassifiedBox extends Component {
         this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
 
-   
+    
 
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         this.setState({advertsToShow: selectedAdverts})
     }
 
+  
 
     render() {
+       
+        if (this.state.admins.length && this.state.advertsDB){
         return (
             <Router>
                 <Fragment>
@@ -131,9 +146,10 @@ class ClassifiedBox extends Component {
                             path="/createad"
                             render={() =>
                                     <Fragment>
-                                    <AdForm onAdSubmit={this.handleAdSubmit} />
+                                    <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
+                                    <AdForm onAdSubmit={this.handleAdSubmit} admins={this.state.admins} />
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                                    <Advert adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}
@@ -144,8 +160,9 @@ class ClassifiedBox extends Component {
                             path="/"
                             render={() =>
                                 <Fragment>
+                                    <Modal triggerText = {this.state.triggerText} onAdSubmit={this.handleAdSubmit} admins={this.state.admins}/>
                                     <CategorySelector adverts={this.state.advertsDB} onCategorySelected={this.handleAdvertSelect} />
-                                    <Advert adverts={this.state.advertsDB} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete} />
+                                    <Advert adverts={this.state.advertsDB} triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate} onAdDelete={this.handleAdDelete}  admins={this.state.admins}/>
                                     {this.state.renderUpdateComponent && (
                                         <UpdateForm advert={this.state.advertToUpdate} handleAdUpdate={this.handleAdUpdate} />
                                     )}
@@ -155,8 +172,13 @@ class ClassifiedBox extends Component {
                     </Switch>
                 </Fragment>
             </Router>
-        )
+        )}
+        else{
+            return <div>"BE PATIENT, I AM LOADING"</div>
     }
+}
+
+
 }
 
 export default ClassifiedBox;

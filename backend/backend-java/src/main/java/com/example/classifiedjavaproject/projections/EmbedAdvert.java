@@ -11,8 +11,9 @@ public interface EmbedAdvert {
     String getTitle();
     String getCategory();
     double getAskingPrice();
-    Admin getAdmin();
     Long getId();
     String getImage();
-    Integer getLikes_counter();
+
+    String getAdminRender();
+    Admin getAdmin();
 }
