@@ -30,7 +30,7 @@ const Advert = ({ adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admi
                     <p>Description: {advert.description}</p>
                     <p>Posted By: {advert.adminRender ? getAdminById(admins, advert.adminRender) : ""}</p> */}
                     <button onClick={() => { handleAdvertToUpdate(advert) }}>Get ready to update</button>
-                    <UpdateModal onClick={() => { handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate} triggerTextUpdate={triggerTextUpdate} />
+                    <UpdateModal onClick={() => { handleAdvertToUpdate(advert) }} advert = {advert} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate} triggerTextUpdate={triggerTextUpdate} />
                     <button onClick={() => { onAdDelete(advert.id) }}>Delete</button>
                 </div>
             )

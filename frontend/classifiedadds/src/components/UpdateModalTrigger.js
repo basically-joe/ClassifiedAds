@@ -4,8 +4,9 @@ const UpdateModalTrigger = ({
     onOpen,
     text,
     handleAdvertToUpdate,
-    advertToUpdate
+    advertToUpdate,
+    advert
 
-}) => <button className="c-btn" onClick={onOpen} onClick={handleAdvertToUpdate(advertToUpdate)}>{text}</button>;
+}) => <button className="c-btn" onClick= {onOpen && handleAdvertToUpdate(advertToUpdate)}>{text}</button>;
 
 export default UpdateModalTrigger;

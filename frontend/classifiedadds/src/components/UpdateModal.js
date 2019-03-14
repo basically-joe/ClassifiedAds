@@ -33,6 +33,7 @@ class UpdateModal extends Component {
                     advertToUpdate={this.props.advertToUpdate}
                     handleAdUpdate={this.handleAdUpdate}
                     handleAdvertToUpdate={this.handleAdvertToUpdate}
+                    advert = {this.advert}
                 />
                 {isOpen &&
                     <UpdateModalContent
