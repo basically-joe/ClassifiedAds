@@ -16,6 +16,9 @@ console.log(admins)
         }
   }
 
+  <Advert adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
+
+
 if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     const advertNodes = adverts.map((advert)  => {
     
