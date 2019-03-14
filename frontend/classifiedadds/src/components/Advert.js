@@ -1,7 +1,8 @@
 import React from 'react'
 import LikesCounter from "./LikesCounter"
+import UpdateModal from "./UpdateModal"
 
-const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate}) => {
+const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate, handleAdDelete}) => {
   
   const getAdminById = (admins, id) => {
 console.log(admins)
@@ -15,8 +16,6 @@ console.log(admins)
             return null;
         }
   }
-
-  <Advert adverts={this.state.advertsDB}  triggerTextUpdate = {this.state.triggerTextUpdate} advertsToShow={this.state.advertsToShow} handleAdvertToUpdate={this.handleAdvertToUpdate}  onAdDelete={this.handleAdDelete} admins ={this.state.admins} />
 
 
 if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
@@ -40,6 +39,9 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     return(
         <div className="advert-list-row">
             {advertNodes}
+            {console.log(adverts)}
+            <UpdateModal adverts={adverts}  triggerTextUpdate = {triggerTextUpdate} advertsToShow={advertsToShow} handleAdvertToUpdate={handleAdvertToUpdate}  onAdDelete={handleAdDelete} admins ={admins} />
+
         </div>
     )
 
