@@ -23,13 +23,13 @@ class UpdateModal extends Component {
 
     render() {
         const { isOpen } = this.state;
-        const { triggerText } = this.props;
+        const { triggerTextUpdate } = this.props;
 
         return (
             <Fragment>
                 <ModalTrigger
                     onOpen={this.onOpen}
-                    text={triggerText}
+                    text={triggerTextUpdate}
                     
                 />
                 {isOpen &&
