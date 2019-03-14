@@ -6,7 +6,7 @@ const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admin
   
   const getAdminById = (admins, id) => {
         const foundAdmin = admins.find(admin => {
-          
+
             return admin.id === Number(id)
         })
            if (foundAdmin) {
@@ -33,7 +33,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <UpdateModal onClick = {()=> {handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate}  triggerTextUpdate = {triggerTextUpdate} />
             <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
-            </div> 
+            </div>
         )
     })
 
@@ -46,7 +46,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
 } else {
 
     const filteredNodes = advertsToShow.map((advert) => {
-    
+
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
@@ -60,11 +60,11 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <button onClick = {()=> {handleAdvertToUpdate(advert)
             }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
-            </div> 
+            </div>
         )
     })
 
-    
+
 
     return(
         <div className="advert-list-row">

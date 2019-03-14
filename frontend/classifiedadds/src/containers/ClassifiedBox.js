@@ -35,6 +35,7 @@ class ClassifiedBox extends Component {
         const url2 = "http://localhost:8080/adverts"
 
         fetch(url)
+
             .then(res => res.json())
             .then(data => {
                 this.setState({admins: data._embedded.admins})
@@ -51,7 +52,7 @@ class ClassifiedBox extends Component {
 
     handleAdSubmit(newAdvert) {
 
-     
+
         const dataToPost = JSON.stringify(newAdvert)
 
         fetch("http://localhost:8080/adverts", {
@@ -78,7 +79,7 @@ class ClassifiedBox extends Component {
 
 
         const indexToDelete = this.updateAdvertsArray(itemId);
-    
+
         let newAdverts = [...this.state.advertsDB]
 
         newAdverts.splice(indexToDelete, 1)
@@ -95,13 +96,13 @@ class ClassifiedBox extends Component {
     }
 
     handleAdUpdate(updatedAdvert){
-        
+
         const id = updatedAdvert.id;
 
-        console.log(id)          
+        console.log(id)
         const dataToUpdate = JSON.stringify(updatedAdvert)
 
-    
+
         fetch(`http://localhost:8080/adverts/${id}`, {
             method: 'PUT',
             body: dataToUpdate,
@@ -125,17 +126,17 @@ class ClassifiedBox extends Component {
         this.setState({advertToUpdate: advert, renderUpdateComponent: true})
     }
 
-    
+
 
     handleAdvertSelect(categoryToFilterBy) {
         const selectedAdverts = this.state.advertsDB.filter(advert => advert.category === categoryToFilterBy);
         this.setState({advertsToShow: selectedAdverts})
     }
 
-  
+
 
     render() {
-       
+
         if (this.state.admins.length && this.state.advertsDB){
         return (
             <Router>
@@ -177,6 +178,7 @@ class ClassifiedBox extends Component {
             return <div>"BE PATIENT, I AM LOADING"</div>
     }
 }
+
 
 
 }

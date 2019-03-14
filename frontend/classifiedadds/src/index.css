@@ -1,6 +1,35 @@
+header {
+  background-image: url(./logo1.png);
+  background-size: cover;
+  background-position: right;
+  border: 2px solid #BE975B;
+  border-style: solid;
+  margin-left: 35px;
+  margin-top: 10px;
+  width: 450px;
+  height: 50px;
+  size: 50%;
+
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 50%;
+  max-width: 400px;
+  max-height: 100px;
+
+}
+
 body {
   margin: 0;
   padding: 0;
+  background-image: url(./inthenews.jpg);
+
+  /* background-image: url(./logo3.jpeg); */
+
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% 35%;
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
