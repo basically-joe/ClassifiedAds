@@ -37,8 +37,6 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
         )
     })
 
-    // onClick = {()=> {handleAdvertToUpdate(advert) }}
-
     return(
         <div className="advert-list-row">
             {advertNodes}
