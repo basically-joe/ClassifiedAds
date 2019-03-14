@@ -2,10 +2,9 @@ import React from 'react'
 import LikesCounter from "./LikesCounter"
 import UpdateModal from "./UpdateModal"
 
-const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate, handleAdDelete}) => {
+const Advert = ({adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate, handleAdDelete, advertToUpdate, handleAdUpdate}) => {
   
   const getAdminById = (admins, id) => {
-console.log(admins)
         const foundAdmin = admins.find(admin => {
           
             return admin.id === Number(id)
@@ -20,7 +19,8 @@ console.log(admins)
 
 if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
     const advertNodes = adverts.map((advert)  => {
-    
+        console.log(advert)
+
         return (
             <div key = {advert.title} className = "individual-ad-box-column">
             <h1>{advert.title}</h1>
@@ -30,7 +30,7 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>Description: {advert.description}</p>
             <p>Posted By: {advert.adminRender ? getAdminById(admins, advert.adminRender) : ""}</p>
             <LikesCounter/>
-            <UpdateModal adverts={adverts}  triggerTextUpdate = {triggerTextUpdate} advertsToShow={advertsToShow} handleAdvertToUpdate={handleAdvertToUpdate}  onAdDelete={handleAdDelete} admins ={admins} />
+            <UpdateModal onClick = {()=> {handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate}  triggerTextUpdate = {triggerTextUpdate} />
             <button onClick = {()=> {handleAdvertToUpdate(advert) }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             </div> 
@@ -56,9 +56,8 @@ if(adverts.length > advertsToShow.length && advertsToShow.length === 0){
             <p>{advert.description}</p>
             <p>{advert.admin ? advert.admin.userName : ""}</p>
             <LikesCounter/>
-            <UpdateModal adverts={adverts}  triggerTextUpdate = {triggerTextUpdate} advertsToShow={advertsToShow} handleAdvertToUpdate={handleAdvertToUpdate}  onAdDelete={handleAdDelete} admins ={admins} />
+            <UpdateModal onClick = {()=> {handleAdvertToUpdate(advert) }} handleAdvertToUpdate={handleAdvertToUpdate} advertToUpdate={advertToUpdate} handleAdUpdate={handleAdUpdate}  triggerTextUpdate = {triggerTextUpdate} />
             <button onClick = {()=> {handleAdvertToUpdate(advert)
-                console.log("HI")
             }}>Update</button>
             <button onClick = {()=> {onAdDelete(advert.id)}}>Delete</button>
             </div> 

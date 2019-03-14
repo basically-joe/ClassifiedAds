@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import ModalTrigger from "./ModalTrigger"
-import ModalContent from "./ModalContent"
+import UpdateModalTrigger from "./ModalTrigger"
+import UpdateModalContent from "./UpdateModalContent"
 
 class UpdateModal extends Component {
 
@@ -27,23 +27,19 @@ class UpdateModal extends Component {
 
         return (
             <Fragment>
-                <ModalTrigger
+                <UpdateModalTrigger
                     onOpen={this.onOpen}
                     text={triggerTextUpdate}
-                    
+                    advertToUpdate={this.props.advertToUpdate} 
+                    handleAdUpdate = {this.handleAdUpdate}
                 />
                 {isOpen &&
-                    <ModalContent
+                    <UpdateModalContent
                     onClose={this.onClose}
-                    onAdSubmit={this.props.onAdSubmit} 
                     admins={this.props.admins}
 
-
-                    adverts={this.props.adverts}  
-                    advertsToShow={this.props.advertsToShow} 
-                    handleAdvertToUpdate={this.props.handleAdvertToUpdate}
-                    onAdDelete={this.props.handleAdDelete} 
-
+                    advertToUpdate={this.props.advertToUpdate} 
+                    handleAdUpdate={this.props.handleAdUpdate}
                   />
                 }
 

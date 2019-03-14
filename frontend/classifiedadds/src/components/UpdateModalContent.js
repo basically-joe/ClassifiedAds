@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AdForm from "../components/AdForm"
-
+import UpdateForm from "../components/UpdateForm"
 
 const UpdateModalContent = ({
     onClose,
     admins,
-    onAdSubmit
+    onAdSubmit,
+    handleAdUpdate,
+    advertToUpdate,
+    adverts, 
+    advertsToShow,
+    handleAdvertToUpdate,
+    onAdDelete
+
+
   }) => {
 
     return ReactDOM.createPortal(
@@ -17,7 +25,8 @@ const UpdateModalContent = ({
                     <svg className="c-modal__close-icon" viewBox="0 0 40 40"><path d="M 10,10 L 30,30 M 30,10 L 10,30"></path></svg>
                 </button>
                 <div className="c-modal__body">
-                <AdForm onAdSubmit={onAdSubmit} admins={admins} />
+                <UpdateForm advert={advertToUpdate} handleAdUpdate={handleAdUpdate} />
+                {/* <AdForm onAdSubmit={onAdSubmit} admins={admins} /> */}
           </div>
             </div>
         </aside>,
