@@ -6,7 +6,7 @@
     height: 120%;
     z-index: 10; 
     transform: translateZ(0);
-    background-color: rgba(#000, 0.15);
+    background-color: rgba(#000, 0.5);
   }
   
   .c-modal {

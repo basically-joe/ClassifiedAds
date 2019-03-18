@@ -2,7 +2,7 @@ import React from 'react'
 import LikesCounter from "./LikesCounter"
 import UpdateModal from "./UpdateModal"
 
-const Advert = ({ adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate, handleAdDelete, advertToUpdate, handleAdUpdate }) => {
+const Advert = ({ renderUpdateComponent, adverts, advertsToShow, handleAdvertToUpdate, onAdDelete, admins, triggerTextUpdate, handleAdDelete, advertToUpdate, handleAdUpdate }) => {
 
     const getAdminById = (admins, id) => {
         const foundAdmin = admins.find(admin => {
