@@ -55,28 +55,24 @@ render() {
             <React.Fragment>
             
             <form className="content-update-form">
-                <label>Image:      </label>
             <input
                 type="text"
                 placeholder="Enter a URL"
                 value = {this.state.image}
                 onChange={this.handleImageChange}
             /><br/>
-                <label>Price(£):   </label>
                 <input
                     type="number"
-                    placeholder="Asking price..."
+                    placeholder="Asking price (£)..."
                     value={this.state.askingPrice}
                     onChange={this.handleaskingPriceChange}
                 /><br/>
-                <label>Description:</label>
                 <input
                     type="text"
                     placeholder="Description..."
                     value={this.state.description}
                     onChange={this.handleDescriptionChange}
                 /><br/>
-                <label>Title:      </label>
                 <input
                     type="text"
                     placeholder="Title..."
